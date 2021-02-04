@@ -1,0 +1,90 @@
+.main-header {
+    width: 140px;
+    margin-right: 45px;
+    flex-direction: column;
+    align-items: center;
+}
+
+.main-nav {
+    padding: 5px;
+    font-style: italic;
+}
+
+.main-nav-logo {
+    width: 120px;
+    height: 120px;
+    margin-bottom: 10px;
+}
+
+.main-nav__list-item-link {
+    margin-bottom: 35px;
+    align-items: center;
+}
+
+.main-nav__list-item-link::before {
+    content: "";
+    min-width: 30px;
+    height: 30px;
+    background-repeat: no-repeat;
+    margin-right: 15px;
+}
+
+.main-nav__list-item-link--tastemakers::before {
+    background-image: url("../images/header/food-icon.svg");
+}
+
+.main-nav__list-item-link--blog::before {
+    background-image: url("../images/header/book.svg");
+}
+
+.main-nav__list-item-link--aList::before {
+    background-image: url("../images/header/a-list-icon.svg");
+}
+
+.main-nav__list-item-link--contribure::before {
+    background-image: url("../images/header/camera-icon.svg");
+}
+
+.main-nav__list-item-link--about::before {
+    background-image: url("../images/header/about-icon.svg");
+}
+
+.main-header__tweet {
+    width: 100%;
+}
+
+.main-header__tweet-title {
+    font-family: Verdana, Arial, sans-serif;
+    font-size: 0.86rem;
+    text-transform: uppercase;
+    border-bottom: 1px dotted #e5e5e5;
+    padding-bottom: 5px;
+    font-weight: 400;
+}
+
+.main-header__tweet-conversation,
+.main-header__tweet-community {
+    align-items: center;
+    font-style: italic;
+    font-size: 0.71rem;
+    line-height: 1.2;
+    padding: 10px 10px 10px 0;
+    border: 1px solid #e5e5e5;
+    border-radius: 5px;
+}
+
+.main-header__tweet-conversation::before,
+.main-header__tweet-community::before {
+    content: "";
+    background-image: url("../images/header/tweet-icon.svg");
+    background-repeat: no-repeat;
+    margin: 0 3px;
+    min-width: 19px;
+    height: 14px;
+}
+
+.main-header__tweet-description {
+    font-style: italic;
+    font-size: 0.71rem;
+    line-height: 1.9;
+}
