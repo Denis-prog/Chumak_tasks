@@ -1,0 +1,187 @@
+.main-content {
+    flex-grow: 1;
+    width: 100%;
+}
+
+.banner {
+    background-image: url("../images/main/siencist.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 445px;
+    overflow: hidden;
+}
+
+.banner__content {
+    flex-direction: column;
+    justify-content: flex-end;
+    margin-bottom: 30px;
+}
+
+.banner__content-lead,
+.banner__content-description {
+    margin: 0;
+    font-style: italic;
+    text-align: center;
+}
+
+.banner__content-lead {
+    align-self: flex-start;
+    padding: 20px;
+    font-size: 22px;
+    letter-spacing: 0.01em;
+    background-color: #fff;
+}
+
+.banner__content-description {
+    padding: 14px 25px;
+    background-color: #000;
+    font-size: 14px;
+    color: #fff;
+}
+
+.nav-tabs {
+    margin-bottom: 30px;
+}
+
+.nav-tabs__item {
+    background: #eff8f7;
+    border-right: 1px solid #fff;
+    width: 100%;
+}
+
+.nav-tabs__item-link {
+    padding: 20px 15px;
+    display: block;
+}
+
+.nav-tabs__item-link:hover {
+    background: #d9efec;
+}
+
+.nav-tabs__item:last-child {
+    border: none;
+}
+
+.nav-tabs__item-title {
+    font-size: 1.29rem;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.nav-tabs__item-subtitle {
+    font-size: 0.71rem;
+    font-style: italic;
+}
+
+.subscribe-box {
+    padding: 10px 15px;
+    margin-bottom: 30px;
+    border-bottom: 1px dotted #e5e5e5;
+    border-top: 1px dotted #e5e5e5;
+}
+
+.subscribe-box,
+.subscribe-box__description {
+    align-items: center;
+}
+
+.subscribe-box__description {
+    font-style: italic;
+    line-height: 1.15;
+    margin-right: 20px;
+}
+
+.subscribe-box__form {
+    flex-shrink: 0;
+}
+
+.subscribe-box__form-field-text {
+    margin-right: 5%;
+    padding: 5px;
+    width: 95%;
+}
+
+.subscribe-box__form-field-text::-webkit-input-placeholder,
+.subscribe-box__form-field-text::-moz-placeholder,
+.subscribe-box__form-field-text:-moz-placeholder,
+.subscribe-box__form-field-text:-ms-input-placeholder {
+    font-size: 0.71rem;
+    color: #e5e5e5;
+}
+
+.subscribe-box__form-submit {
+    font-size: 0.71rem;
+    padding: 5px 17px;
+    cursor: pointer;
+    background-image: linear-gradient(180deg, #f4f3f3 0%, #bbb9b9 100%);
+    border: 1px solid #e5e5e5;
+    border-radius: 2px;
+}
+
+.subscribe-box__description::before {
+    content: "";
+    background-image: url("../images/main/letter-icon.svg");
+    background-repeat: no-repeat;
+    min-width: 32px;
+    height: 26px;
+    margin-right: 10px;
+}
+
+.card-list {
+    flex-wrap: wrap;
+    margin: 0 -7.5px;
+}
+
+.card-item {
+    width: calc(1 / 4 * 100% - 15px);
+    align-items: center;
+    flex-direction: column;
+    margin: 0 7.5px 20px;
+    line-height: 1.42;
+}
+
+.card-item__review {
+    border: 1px solid #e5e5e5;
+    margin-bottom: 10px;
+    box-shadow: 0px 0px 2px 1px #E5E5E5;
+}
+
+.card-item__review > img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.card-item__title,
+.card-item__timestamp {
+    font-size: 1.14rem;
+    letter-spacing: -0.02em;
+}
+
+.card-item__title-link {
+    align-self: flex-start;
+}
+
+.card-item__title {
+    margin: 0 0 10px;
+    line-height: 1.5;
+    font-weight: 400;
+}
+
+.card-item__body {
+    margin: 0 0 10px;
+    width: 100%;
+    letter-spacing: -0.02em;
+    font-weight: normal;
+}
+
+.card-item__footer {
+    align-self: flex-start;
+    color: #e5e5e5;
+    margin: 0;
+}
+
+.card-item__read-more {
+    color: #34aca7;
+}
