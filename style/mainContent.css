@@ -65,7 +65,8 @@
 
 .nav-tabs__item-title {
     font-size: 1.29rem;
-    display: block;
+    font-weight: 400;
+    margin: 0;
     margin-bottom: 5px;
 }
 
