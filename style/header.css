@@ -133,3 +133,19 @@
         margin-bottom: 10px;
     }
 }
+
+@media (max-width: 767px) {
+    .main-nav__logo-link {
+        padding-right: 15px;
+    }
+
+    .main-nav__list {
+        width: 75%;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .main-nav__list-item-link:before {
+        display: none;
+    }
+}
