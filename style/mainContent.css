@@ -39,10 +39,16 @@
     color: #fff;
 }
 
+.nav-list {
+    flex-wrap: wrap;
+}
+
 .nav-tabs__item {
     background: #eff8f7;
     border-right: 1px solid #fff;
-    width: 100%;
+    border-bottom: 1px solid #fff;
+    flex-grow: 1;
+
 }
 
 .nav-tabs__item-link {
