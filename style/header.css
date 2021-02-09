@@ -97,7 +97,7 @@
 
     .main-header {
         width: 100%;
-        margin-bottom: 40px;
+        margin-bottom: 30px;
     }
 
     .main-header__tweet {
@@ -112,7 +112,8 @@
         padding: 0;
     }
 
-    .main-nav-logo {
+    .main-nav-logo,
+    .main-nav__list-item-link  {
         margin-bottom: 0;
     }
 
@@ -125,7 +126,6 @@
 
     .main-nav__list-item-link {
         flex-direction: column;
-        margin-bottom: 0;
     }
 
     .main-nav__list-item-link:before {
@@ -151,7 +151,7 @@
 }
 
 @media(max-width: 479px) {
-    .main-header {
+    .main-nav__list {
         margin-bottom: 30px;
     }
     
@@ -162,7 +162,6 @@
 
     .main-nav__list {
         width: 100%;
-        margin-bottom: 30px;
     }
 
     .main-nav__logo-link {
