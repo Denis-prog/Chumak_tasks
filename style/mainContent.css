@@ -184,3 +184,22 @@
 .card-item__read-more {
     color: #34aca7;
 }
+
+@media (max-width: 1176px) {
+    .nav-tabs__item-link {
+        text-align: center;
+    }
+
+    .nav-tabs__item-title {
+        font-size: 1rem;
+        margin-bottom: 0;
+    }
+
+    .nav-tabs__item-subtitle {
+        display: none;
+    }
+
+    .nav-tabs__item-link {
+        padding: 10px 50px;
+    }
+}
