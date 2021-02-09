@@ -259,7 +259,10 @@
 
     .card-item {
         width: 100%;
-        margin-left: 0;
-        margin-right: 0;
+        margin: 0 0 30px;
+    }
+
+    .card-item:last-child {
+        margin-bottom: 0;
     }
 }
