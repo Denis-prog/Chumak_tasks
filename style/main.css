@@ -50,6 +50,38 @@ body {
     flex-shrink: 0;
 }
 
+.align-items-center {
+    align-items: center;
+}
+
+.justify-content-space-between {
+    justify-content: space-between;
+}
+
+.font-style-italic {
+    font-style: italic;
+}
+
+@media (max-width: 991px) {
+    .l-flex-container {
+        display: flex;
+    }
+
+    .l-align-items-center {
+        align-items: center;
+    }
+
+    .l-justify-content-space-between {
+        justify-content: space-between;
+    }
+}
+
+@media (max-width: 767px) {
+    .s-justify-content-space-between {
+        justify-content: space-between;
+    }
+}
+
 @media (max-width: 479px) {
     .main-wrapper {
         padding: 0;
@@ -57,5 +89,9 @@ body {
 
     .xs-wrapper {
         padding: 0 15px;
+    }
+
+    .xs-align-items-center {
+        align-items: center;
     }
 }

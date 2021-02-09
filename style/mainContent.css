@@ -21,7 +21,6 @@
 .banner__content-lead,
 .banner__content-description {
     margin: 0;
-    font-style: italic;
     text-align: center;
 }
 
@@ -68,7 +67,6 @@
 
 .nav-tabs__item-subtitle {
     font-size: 0.71rem;
-    font-style: italic;
 }
 
 .subscribe-box {
@@ -78,13 +76,7 @@
     border-top: 1px dotted #e5e5e5;
 }
 
-.subscribe-box,
 .subscribe-box__description {
-    align-items: center;
-}
-
-.subscribe-box__description {
-    font-style: italic;
     line-height: 1.15;
     margin-right: 20px;
 }
@@ -261,7 +253,6 @@
     }
 
     .card-list {
-        align-items: center;
         margin: 0;
         padding: 0 30px;
     }
