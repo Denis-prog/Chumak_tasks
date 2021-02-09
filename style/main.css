@@ -49,3 +49,13 @@ body {
     flex-grow: 1;
     flex-shrink: 0;
 }
+
+@media (max-width: 479px) {
+    .main-wrapper {
+        padding: 0;
+    }
+
+    .xs-wrapper {
+        padding: 0 15px;
+    }
+}
