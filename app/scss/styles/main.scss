@@ -6,9 +6,9 @@
 
 html,
 body {
-    font-size: 14px;
+    font-size  : $font-size-default;
     font-family: Arial, Helvetica, sans-serif;
-    color: #000;
+    color      :  $font-default;
 }
 
 body {
@@ -21,32 +21,34 @@ body {
 
 .visualy-hidden {
     position: absolute;
-    clip: rect(0 0 0 0);
-    width: 1px;
-    height: 1px;
-    margin: -1px;
+    clip    : rect(0 0 0 0);
+    width   : 1px;
+    height  : 1px;
+    margin  : -1px;
 }
 
 .link {
-    color: #34aca7;
+    //дел
+    color          : $main-link;
     text-decoration: none;
 }
 
 .nav-list {
-    margin: 0;
-    padding: 0;
+    //дел
+    margin    : 0;
+    padding   : 0;
     list-style: none;
 }
 
 .main-wrapper {
     flex-direction: column;
-    max-width: 1100px;
-    padding: 0 10px;
-    margin: 30px auto 0;
+    max-width     : 1100px;
+    padding       : 0 10px;
+    margin        : 30px auto 0;
 }
 
 .main-wrapper__top {
-    flex-grow: 1;
+    flex-grow  : 1;
     flex-shrink: 0;
 }
 
@@ -73,6 +75,10 @@ body {
 
     .l-justify-content-space-between {
         justify-content: space-between;
+    }
+
+    .main-wrapper__top {
+        display: block;
     }
 }
 

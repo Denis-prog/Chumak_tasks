@@ -1,0 +1,3 @@
+@function getPathImg($folder, $imageName){  //имя конечной папки, где расположена картинка и имя файла.
+    @return '../images/#{$folder}/#{$imageName}'
+}

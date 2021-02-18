@@ -1,0 +1,15 @@
+//font-size
+$font-size-default : 14px;
+
+
+//bg-image-path
+//header
+//main-nav
+$main-nav-icon: (tastemakers: #{getPathImg('header', 'food-icon.svg')},
+    blog: getPathImg('header', 'book-icon.svg'),
+    aList: getPathImg('header', 'a-list-icon.svg'),
+    contribure: getPathImg('header', 'camera-icon.svg'),
+    about: getPathImg('header', 'about-icon.svg'));
+
+//widgets
+$twitter-icon: getPathImg('header', 'tweet-icon.svg');

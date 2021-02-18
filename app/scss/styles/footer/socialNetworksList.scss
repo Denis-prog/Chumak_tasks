@@ -1,0 +1,13 @@
+.social-networks-list {
+    @extend %listStyleReset;
+
+    &__item-link {
+        margin-left: 5px;
+        display    : block;
+    }
+
+    &__item-img {
+        width : 32px;
+        height: 32px;
+    }
+}

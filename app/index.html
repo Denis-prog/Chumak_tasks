@@ -2,11 +2,7 @@
 <html lang="en">
 
 <head>
-    <link rel="stylesheet" href="./style/normalize.css">
-    <link rel="stylesheet" href="./style/main.css">
-    <link rel="stylesheet" href="./style/header.css">
-    <link rel="stylesheet" href="./style/mainContent.css">
-    <link rel="stylesheet" href="./style/footer.css">
+    <link rel="stylesheet" href="./css/style.min.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>task1</title>
@@ -17,57 +13,82 @@
         <!--left column start-->
         <div class="xs-wrapper">
             <header class="flex-container align-items-center main-header">
-                <nav class="l-flex-container l-align-items-center l-justify-content-space-between font-style-italic main-nav">
-                    <a class="main-nav__logo-link" href="#">
-                        <img class="main-nav-logo" src="./images/header/logo.svg" alt="логотип сайта Food sense">
+                <nav
+                    class="l-flex-container l-align-items-center l-justify-content-space-between font-style-italic main-header__nav main-nav">
+                    <a class="main-header__nav-logo-link main-nav__logo-link" href="#">
+                        <img class="main-header__nav-logo main-nav__logo" src="./images/header/logo.svg"
+                            alt="логотип сайта Food sense">
                     </a>
-                    <ul class="l-flex-container s-justify-content-space-between nav-list main-nav__list">
-                        <li class="main-nav__list-item">
-                            <a class="flex-container align-items-center link main-nav__list-item-link
+                    <ul class="l-flex-container s-justify-content-space-between main-header__nav-list main-nav__list">
+                        <!-- nav-list -->
+                        <li class="main-header__nav-list-item main-nav__list-item">
+                            <a class="flex-container align-items-center
+                            main-header__nav-list-item-link
+                            main-nav__list-item-link
+                            main-header__nav-list-item-link--tastemakers
                             main-nav__list-item-link--tastemakers" href="#">
                                 Tastemakers
                             </a>
                         </li>
-                        <li class="main-nav__list-item">
-                            <a class="flex-container align-items-center link main-nav__list-item-link
+                        <li class="main-header__nav-list-item main-nav__list-item">
+                            <a class="flex-container align-items-center
+                            main-header__nav-list-item-link
+                            main-nav__list-item-link
+                            main-header__nav-list-item-link--blog
                             main-nav__list-item-link--blog" href="#">
                                 Blog
                             </a>
                         </li>
-                        <li class="main-nav__list-item">
-                            <a class="flex-container align-items-center link main-nav__list-item-link
+                        <li class="main-header__nav-list-item main-nav__list-item">
+                            <a class="flex-container align-items-center
+                            main-header__nav-list-item-link 
+                            main-nav__list-item-link
+                            main-header__nav-list-item-link--aList
                             main-nav__list-item-link--aList" href="#">
                                 The A-List
                             </a>
                         </li>
-                        <li class="main-nav__list-item">
-                            <a class="flex-container align-items-center link main-nav__list-item-link
+                        <li class="main-header__nav-list-item main-nav__list-item">
+                            <a class="flex-container align-items-center
+                            main-header__nav-list-item-link
+                            main-nav__list-item-link
+                            main-header__nav-list-item-link--contribure
                             main-nav__list-item-link--contribure" href="#">
                                 Contribure
                             </a>
                         </li>
-                        <li class="main-nav__list-item">
-                            <a class="flex-container align-items-center link main-nav__list-item-link
+                        <li class="main-header__nav-list-item main-nav__list-item">
+                            <a class="flex-container align-items-center
+                            main-header__nav-list-item-link
+                            main-nav__list-item-link
+                            main-header__nav-list-item-link--about
                             main-nav__list-item-link--about" href="#">
                                 About
                             </a>
                         </li>
                     </ul>
                 </nav>
-                <section class="main-header__tweet">
-                    <h3 class="main-header__tweet-title">Latest tweet</h3>
-                    <a class="link flex-container align-items-center font-style-italic main-header__tweet-conversation" href="#"
-                        aria-label="Join the Conversation on Twitter">
-                        Join the Conversation
-                    </a>
-                    <h3 class="main-header__tweet-title">Let’s be friends!</h3>
-                    <p class="font-style-italic main-header__tweet-description">For weekly finds, community recommendations, and more,
-                        like us
-                        on Facebook.</p>
-                    <a class="link flex-container align-items-center font-style-italic main-header__tweet-community" href="#"
-                        aria-label="Join the Community on Twitter">
-                        Join the Community
-                    </a>
+                <section class="main-header__widget widgets">
+                    <ul class="widgets-list">
+                        <li class="widgets-list__item">
+                            <h3 class="widgets-list__item-title">Latest tweet</h3>
+                            <a class="flex-container align-items-center font-style-italic widgets-list__item-link"
+                                href="#" aria-label="Join the Conversation on Twitter">
+                                Join the Conversation
+                            </a>
+                        </li>
+                        <li class="widgets-list__item">
+                            <h3 class="widgets-list__item-title">Let’s be friends!</h3>
+                            <p class="font-style-italic widgets-list__item-description">For weekly finds, community
+                                recommendations, and more,
+                                like us
+                                on Facebook.</p>
+                            <a class="flex-container align-items-center font-style-italic widgets-list__item-link"
+                                href="#" aria-label="Join the Community on Twitter">
+                                Join the Community
+                            </a>
+                        </li>
+                    </ul>
                 </section>
             </header>
         </div>
@@ -78,7 +99,8 @@
             <div class="flex-container banner">
                 <div class="flex-container banner__content">
                     <p class="font-style-italic banner__content-lead">Share your Foor Sence</p>
-                    <p class="font-style-italic banner__content-description">Submit yout favorite recipes, become a contributor, or
+                    <p class="font-style-italic banner__content-description">Submit yout favorite recipes, become a
+                        contributor, or
                         get interviewed.
                     </p>
                 </div>
@@ -94,13 +116,15 @@
                     <li class="nav-tabs__item">
                         <a class="link nav-tabs__item-link" href="#">
                             <h3 class="nav-tabs__item-title">Blog</h3>
-                            <span class="font-style-italic nav-tabs__item-subtitle">News, how-tos, stories, and more</span>
+                            <span class="font-style-italic nav-tabs__item-subtitle">News, how-tos, stories, and
+                                more</span>
                         </a>
                     </li>
                     <li class="nav-tabs__item">
                         <a class="link nav-tabs__item-link" href="#">
                             <h3 class="nav-tabs__item-title">The A-List</h3>
-                            <span class="font-style-italic nav-tabs__item-subtitle">Handpicked, absolute favorites</span>
+                            <span class="font-style-italic nav-tabs__item-subtitle">Handpicked, absolute
+                                favorites</span>
                         </a>
                     </li>
                     <li class="nav-tabs__item">
@@ -219,36 +243,39 @@
     <div class="xs-wrapper">
         <footer class="flex-container align-items-center justify-content-space-between main-footer">
             <div>
-                <ul class="flex-container nav-list main-footer__nav">
-                    <li class="main-footer__nav-item">
-                        <a class="link main-footer__nav-item-link" href="#">Privacy Policy</a>
+                <ul class="flex-container main-footer__nav navigation-list">
+                    <li class="main-footer__nav-item navigation-list__item">
+                        <a class="link main-footer__nav-item-link navigation-list__item-link" href="#">Privacy Policy</a>
                     </li>
-                    <li class="main-footer__nav-item">
-                        <a class="link main-footer__nav-item-link" href="#">Terms of Use</a>
+                    <li class="main-footer__nav-item navigation-list__item">
+                        <a class="link main-footer__nav-item-link navigation-list__item-link" href="#">Terms of Use</a>
                     </li>
-                    <li class="main-footer__nav-item">
-                        <a class="link main-footer__nav-item-link" href="#">Contact</a>
+                    <li class="main-footer__nav-item navigation-list__item">
+                        <a class="link main-footer__nav-item-link navigation-list__item-link" href="#">Contact</a>
                     </li>
                 </ul>
                 <p class="main-footer__copyright">© 2016 Food Sense, all rights reserved</p>
             </div>
-            <ul class="flex-container nav-list main-footer__social-networks">
-                <li class="main-footer__social-networks-item">
-                    <a class="main-footer__social-networks-item-link 
+            <ul class="flex-container main-footer__social-networks social-networks-list">
+                <li class="main-footer__social-networks-item social-networks-list__item">
+                    <a class="main-footer__social-networks-item-link social-networks-list__item-link
                     main-footer__social-networks-item-link--facebook" href="#">
-                        <img src="./images/footer/twitter-icon.svg" alt="Перейти на Facebook">
+                        <img class="main-footer__social-networks-item-img social-networks-list__item-img"
+                            src="./images/footer/twitter-icon.svg" alt="Перейти на Facebook">
                     </a>
                 </li>
-                <li class="main-footer__social-networks-item">
-                    <a class="main-footer__social-networks-item-link 
+                <li class="main-footer__social-networks-item social-networks-list__item">
+                    <a class="main-footer__social-networks-item-link social-networks-list__item-link
                     main-footer__social-networks-item-link--twitter" href="#">
-                        <img src="./images/footer/fb-icon.svg" alt="Перейти на Twitter">
+                        <img class="main-footer__social-networks-item-img social-networks-list__item-img"
+                            src="./images/footer/fb-icon.svg" alt="Перейти на Twitter">
                     </a>
                 </li>
-                <li class="main-footer__social-networks-item">
-                    <a class="main-footer__social-networks-item-link 
+                <li class="main-footer__social-networks-item social-networks-list__item">
+                    <a class="main-footer__social-networks-item-link social-networks-list__item-link
                     main-footer__social-networks-item-link--rss" href="#">
-                        <img src="./images/footer/rss-icon.svg" alt="Перейти на RSS">
+                        <img class="main-footer__social-networks-item-img social-networks-list__item-img"
+                            src="./images/footer/rss-icon.svg" alt="Перейти на RSS">
                     </a>
                 </li>
             </ul>

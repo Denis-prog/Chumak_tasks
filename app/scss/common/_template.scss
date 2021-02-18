@@ -1,0 +1,10 @@
+%listStyleReset {
+    padding   : 0;
+    margin    : 0;
+    list-style: none;
+}
+
+%linkStyleBase {
+    color          : $main-link;
+    text-decoration: none;
+}

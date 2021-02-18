@@ -1,0 +1,17 @@
+.navigation-list {
+    @extend %listStyleReset;
+    margin: 0 -0.5em;
+
+    &__item {
+        padding     : 0 0.5em;
+        border-right: 1px solid $main-footer__nav-item-border-right;
+
+        &:last-child {
+            border: none;
+        }
+    }
+
+    &__item-link {
+        letter-spacing: -0.02em;
+    }
+}

@@ -1,0 +1,15 @@
+@import '../../node_modules/normalize.css/normalize';
+@import './common/_color';
+@import './common/_function';
+@import './common/_variable';
+@import './common/_template';
+@import './common/_mixin';
+@import './styles/main';
+@import './styles/header/mainNav';
+@import './styles/header/widgets';
+@import './styles/header/header';
+@import './styles/mainContent/banner.scss';
+@import './styles/mainContent/mainContent.scss';
+@import './styles/footer/navigationList';
+@import './styles/footer/socialNetworksList';
+@import './styles/footer/footer';

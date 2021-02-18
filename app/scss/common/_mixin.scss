@@ -1,0 +1,6 @@
+@mixin bgProperties($repeat:no-repeat, $bgSize: auto, $bgPosition: center center, $bgImage:null) {
+    background-repeat  : $repeat;
+    background-size    : $bgSize;
+    background-position: $bgPosition;
+    background-image   : url($bgImage);
+}

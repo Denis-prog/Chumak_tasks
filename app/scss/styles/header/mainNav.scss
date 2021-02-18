@@ -1,0 +1,40 @@
+.main-nav {
+    padding: 5px;
+
+    &__logo-link {
+        display      : block;
+        margin-bottom: 20px;
+    }
+
+    &__logo {
+        width : 120px;
+        height: 120px;
+    }
+
+    &__list {
+        @extend %listStyleReset;
+    }
+
+    &__list-item {
+        margin-bottom: 35px;
+    }
+
+    &__list-item-link {
+        word-break: break-all;
+        @extend %linkStyleBase;
+
+        &::before {
+            content     : "";
+            min-width   : 30px;
+            height      : 30px;
+            margin-right: 15px;
+        }
+    }
+
+    @each $modifier,
+    $path in $main-nav-icon {
+        &__list-item-link--#{$modifier}::before {
+            @include bgProperties($bgImage:$path);
+        }
+    }
+}
