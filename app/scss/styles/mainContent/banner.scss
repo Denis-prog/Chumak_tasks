@@ -1,10 +1,7 @@
 .banner {
-    background-image   : url("../images/main/siencist.png");
-    background-size    : cover;
-    background-position: center;
-    background-repeat  : no-repeat;
-    height             : 445px;
-    overflow           : hidden;
+    @include bgProperties($bgSize:cover, $bgImage:$banner-bg);
+    height                       : 445px;
+    overflow                     : hidden;
 
     &__content {
         flex-direction : column;
@@ -23,13 +20,32 @@
         padding         : 20px;
         font-size       : 22px;
         letter-spacing  : 0.01em;
-        background-color: #fff;
+        background-color: $banner__content-lead-bg;
     }
 
-    &__ {
+    &__content-description {
         padding         : 14px 25px;
-        background-color: #000;
-        font-size       : 14px;
-        color           : #fff;
+        background-color: $banner__content-description-bg;
+        font-size       : 1rem;
+        color           : $banner__content-description-font;
+    }
+
+
+    @media (max-width: $s-width-screen) {
+        &__content {
+            width        : 100%;
+            margin-bottom: 0;
+        }
+
+        &__content-lead,
+        &__content-description {
+            text-align: start;
+        }
+
+        &__content-lead {
+            align-self: stretch;
+            background: $s-banner__content-lead-bg;
+            opacity   : 0.6;
+        }
     }
 }

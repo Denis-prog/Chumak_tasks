@@ -1,10 +1,11 @@
-//font-size
+//FONT-SIZE
 $font-size-default : 14px;
 
 
-//bg-image-path
+//IMAGE-PATH
+
 //header
-//main-nav
+////main-nav
 $main-nav-icon: (tastemakers: #{getPathImg('header', 'food-icon.svg')},
     blog: getPathImg('header', 'book-icon.svg'),
     aList: getPathImg('header', 'a-list-icon.svg'),
@@ -13,3 +14,24 @@ $main-nav-icon: (tastemakers: #{getPathImg('header', 'food-icon.svg')},
 
 //widgets
 $twitter-icon: getPathImg('header', 'tweet-icon.svg');
+
+//main-content
+////banner
+$banner-bg: getPathImg('main', 'siencist.png');
+
+////subscribe-box:
+$letter-icon: getPathImg('main', 'letter-icon.svg');
+
+
+//ADAPTIVE
+
+//main-content
+////card-item
+$xl-count-card-row:4;
+$s-count-card-row :2;
+
+//breakPoints
+$l-width-screen : 1176px;
+$m-width-screen : 992px;
+$s-width-screen : 768px;
+$xs-width-screen: 480px;

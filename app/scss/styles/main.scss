@@ -64,7 +64,7 @@ body {
     font-style: italic;
 }
 
-@media (max-width: 991px) {
+@media (max-width: $m-width-screen) {
     .l-flex-container {
         display: flex;
     }
@@ -82,13 +82,13 @@ body {
     }
 }
 
-@media (max-width: 767px) {
+@media (max-width: $s-width-screen) {
     .s-justify-content-space-between {
         justify-content: space-between;
     }
 }
 
-@media (max-width: 479px) {
+@media (max-width: $xs-width-screen) {
     .main-wrapper {
         padding: 0;
     }

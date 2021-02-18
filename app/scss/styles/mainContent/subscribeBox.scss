@@ -1,0 +1,68 @@
+.subscribe-box {
+    padding      : 10px 15px;
+    margin       : 30px 0;
+    border-bottom: 1px dotted $subscribe-box-border;
+    border-top   : 1px dotted $subscribe-box-border;
+
+    &__decription {
+        line-height : 1.15;
+        margin-right: 20px;
+
+        &::before {
+            @include bgProperties($bgImage:$letter-icon);
+            content                       : "";
+            min-width                     : 32px;
+            height                        : 26px;
+            margin-right                  : 10px;
+        }
+    }
+
+    &__form {
+        flex-shrink: 0
+    }
+
+    &__form-field-text {
+        margin-right: 5%;
+        padding     : 5px;
+        width       : 100%;
+        border      : 1px solid $subscribe-box__form-field-text-border;
+
+        &::placeholder {
+            font-size: 0.71rem;
+            color    : $subscribe-box__form-field-text-font-placeholder;
+        }
+    }
+
+    &__form-submit {
+        font-size       : 0.71rem;
+        padding         : 5px 17px;
+        background-image: linear-gradient($subscribe-box__form-submit-gradient);
+        border          : 1px solid $subscribe-box__form-submit-border;
+        border-radius   : 2px;
+    }
+
+    
+    @media (max-width: $s-width-screen) {
+
+        & {
+            flex-direction: column;
+        }
+
+        &__description {
+            margin-right: 0;
+        }
+
+        &__form {
+            width: 100%;
+        }
+    }
+
+    @media (max-width: $xs-width-screen) {
+        &__form {
+            width        : 85%;
+            align-self   : flex-start;
+            margin-bottom: 20px;
+        }
+    }
+
+}

@@ -4,7 +4,7 @@
     flex-direction: column;
 
 
-    @media (max-width: 991px) {
+    @media (max-width: $m-width-screen) {
         width        : 100%;
         margin-bottom: 30px;
 
@@ -48,7 +48,7 @@
         }
 
 
-        @media (max-width: 767px) {
+        @media (max-width: $s-width-screen) {
             &__nav-logo-link {
                 padding-right: 15px;
             }
@@ -62,7 +62,7 @@
             }
         }
 
-        @media (max-width: 479px) {
+        @media (max-width: $xs-width-screen) {
 
             &__nav {
                 flex-wrap      : wrap;

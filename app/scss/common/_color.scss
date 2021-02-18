@@ -1,19 +1,49 @@
- $light-gray :#e5e5e5;
- $white      :#fff;
- $black      :#000;
- $aquarium   :#34aca7;
+ $gray        :#bbb9b9;
+ $light-gray  :#e5e5e5;
+ $light-gray-2:#f4f3f3;
+ $white       :#fff;
+ $black       :#000;
+ $aquarium    :#34aca7;
+ $azure       :#eff8f7;
+ $dark-azure  :#d9efec;
 
- //main
+ //MAIN
  $font-default: $black;
- $main-link: $aquarium;
+ $main-link   : $aquarium;
 
  //header
  //widgets
  $widgets-list__item-title-border : $light-gray;
  $widgets-list__item-link-border  :$light-gray;
 
+ //MAIN-CONTENT
 
- //footer
+ //banner
+ $banner__content-lead-bg            : $white;
+ $banner__content-description-bg     : $black;
+ $banner__content-description-font   : $white;
+ $nav-tabs__list-item-link-font-hover: $dark-azure;
+ $s-banner__content-lead-bg          : $white;
+
+ //nav-tabs
+ $nav-tabs__list-item-bg    :$azure;
+ $nav-tabs__list-item-border: $white;
+
+ //subscribe-box
+ $subscribe-box-border                           : $light-gray;
+ $subscribe-box__form-field-text-border          : $light-gray;
+ $subscribe-box__form-field-text-font-placeholder: $light-gray;
+ $subscribe-box__form-submit-border              : $light-gray;
+ $subscribe-box__form-submit-gradient            : #{180deg,  $light-gray-2 0%, $gray 100%};
+
+
+ //card-item
+ $card-item__review-border: $light-gray;
+ $card-item__review-shadow: #{0px 0px 2px 1px $light-gray};
+ $card-item__footer-font  : $light-gray;
+
+
+ //FOOTER
  $main-footer-border-top            : $light-gray;
  $main-footer__nav-item-border-right: $light-gray;
  $main-footer__copyright-color      : $light-gray;

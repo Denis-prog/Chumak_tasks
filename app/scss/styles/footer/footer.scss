@@ -10,7 +10,7 @@
         margin-top: 0.5em;
     }
 
-    @media (max-width: 1176px) {
+    @media (max-width: $l-width-screen) {
         padding-left : 0;
         padding-right: 0;
     }
