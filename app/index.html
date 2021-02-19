@@ -4,26 +4,25 @@
 <head>
     <link rel="stylesheet" href="./css/style.min.css">
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>task1</title>
 </head>
 
-<body class="flex-container main-wrapper">
-    <div class="flex-container main-wrapper__top">
+<body class="main-wrapper">
+    <div class="main-wrapper__top">
         <!--left column start-->
         <div class="xs-wrapper">
-            <header class="flex-container align-items-center main-header">
+            <header class="main-header">
                 <nav
-                    class="l-flex-container l-align-items-center l-justify-content-space-between font-style-italic main-header__nav main-nav">
+                    class="main-header__nav main-nav">
                     <a class="main-header__nav-logo-link main-nav__logo-link" href="#">
                         <img class="main-header__nav-logo main-nav__logo" src="./images/header/logo.svg"
                             alt="логотип сайта Food sense">
                     </a>
-                    <ul class="l-flex-container s-justify-content-space-between main-header__nav-list main-nav__list">
-                        <!-- nav-list -->
+                    <ul class="main-header__nav-list main-nav__list">
                         <li class="main-header__nav-list-item main-nav__list-item">
-                            <a class="flex-container align-items-center
-                            main-header__nav-list-item-link
+                            <a class="main-header__nav-list-item-link
                             main-nav__list-item-link
                             main-header__nav-list-item-link--tastemakers
                             main-nav__list-item-link--tastemakers" href="#">
@@ -31,8 +30,7 @@
                             </a>
                         </li>
                         <li class="main-header__nav-list-item main-nav__list-item">
-                            <a class="flex-container align-items-center
-                            main-header__nav-list-item-link
+                            <a class="main-header__nav-list-item-link
                             main-nav__list-item-link
                             main-header__nav-list-item-link--blog
                             main-nav__list-item-link--blog" href="#">
@@ -40,8 +38,7 @@
                             </a>
                         </li>
                         <li class="main-header__nav-list-item main-nav__list-item">
-                            <a class="flex-container align-items-center
-                            main-header__nav-list-item-link 
+                            <a class="main-header__nav-list-item-link 
                             main-nav__list-item-link
                             main-header__nav-list-item-link--aList
                             main-nav__list-item-link--aList" href="#">
@@ -49,8 +46,7 @@
                             </a>
                         </li>
                         <li class="main-header__nav-list-item main-nav__list-item">
-                            <a class="flex-container align-items-center
-                            main-header__nav-list-item-link
+                            <a class="main-header__nav-list-item-link
                             main-nav__list-item-link
                             main-header__nav-list-item-link--contribure
                             main-nav__list-item-link--contribure" href="#">
@@ -58,8 +54,7 @@
                             </a>
                         </li>
                         <li class="main-header__nav-list-item main-nav__list-item">
-                            <a class="flex-container align-items-center
-                            main-header__nav-list-item-link
+                            <a class="main-header__nav-list-item-link
                             main-nav__list-item-link
                             main-header__nav-list-item-link--about
                             main-nav__list-item-link--about" href="#">
@@ -68,22 +63,22 @@
                         </li>
                     </ul>
                 </nav>
-                <section class="main-header__widget widgets">
+                <section class="main-header__widgets widgets">
                     <ul class="widgets-list">
                         <li class="widgets-list__item">
                             <h3 class="widgets-list__item-title">Latest tweet</h3>
-                            <a class="flex-container align-items-center font-style-italic widgets-list__item-link"
+                            <a class="widgets-list__item-link"
                                 href="#" aria-label="Join the Conversation on Twitter">
                                 Join the Conversation
                             </a>
                         </li>
                         <li class="widgets-list__item">
                             <h3 class="widgets-list__item-title">Let’s be friends!</h3>
-                            <p class="font-style-italic widgets-list__item-description">For weekly finds, community
+                            <p class="widgets-list__item-description">For weekly finds, community
                                 recommendations, and more,
                                 like us
                                 on Facebook.</p>
-                            <a class="flex-container align-items-center font-style-italic widgets-list__item-link"
+                            <a class="widgets-list__item-link"
                                 href="#" aria-label="Join the Community on Twitter">
                                 Join the Community
                             </a>
@@ -95,66 +90,68 @@
         <!--left column end-->
         <!--main-content start-->
         <main class="main-content">
-            <h1 class="visualy-hidden">Recipe site Food Sense</h1>
-            <div class="flex-container banner">
-                <div class="flex-container banner__content">
-                    <p class="font-style-italic banner__content-lead">Share your Foor Sence</p>
-                    <p class="font-style-italic banner__content-description">Submit yout favorite recipes, become a
+            <h1 class="main-content__title">Recipe site Food Sense</h1>
+            <div class="banner">
+                <div class="banner__content">
+                    <p class="banner__content-lead">Share your Foor Sence</p>
+                    <p class="banner__content-description">Submit yout favorite recipes, become a
                         contributor, or
                         get interviewed.
                     </p>
                 </div>
             </div>
             <nav class="nav-tabs">
-                <ul class="flex-container nav-tabs__list nav-list">
+                <ul class="nav-tabs__list">
                     <li class="nav-tabs__list-item">
                         <a class="nav-tabs__list-item-link" href="#">
                             <h3 class="nav-tabs__list-item-title">Tastemakers</h3>
-                            <span class="font-style-italic nav-tabs__list-item-subtitle">Feast your eyes & get reciepes!</span>
+                            <span class="nav-tabs__list-item-subtitle">Feast your eyes & get
+                                reciepes!</span>
                         </a>
                     </li>
                     <li class="nav-tabs__list-item">
                         <a class="nav-tabs__list-item-link" href="#">
                             <h3 class="nav-tabs__list-item-title">Blog</h3>
-                            <span class="font-style-italic nav-tabs__list-item-subtitle">News, how-tos, stories, and
+                            <span class="nav-tabs__list-item-subtitle">News, how-tos, stories, and
                                 more</span>
                         </a>
                     </li>
                     <li class="nav-tabs__list-item">
                         <a class="nav-tabs__list-item-link" href="#">
                             <h3 class="nav-tabs__list-item-title">The A-List</h3>
-                            <span class="font-style-italic nav-tabs__list-item-subtitle">Handpicked, absolute
+                            <span class="nav-tabs__list-item-subtitle">Handpicked, absolute
                                 favorites</span>
                         </a>
                     </li>
                     <li class="nav-tabs__list-item">
                         <a class="nav-tabs__list-item-link" href="#">
                             <h3 class="nav-tabs__list-item-title">Contribute</h3>
-                            <span class="font-style-italic nav-tabs__list-item-subtitle">We want to hear from you!</span>
+                            <span class="nav-tabs__list-item-subtitle">We want to hear from
+                                you!</span>
                         </a>
                     </li>
                 </ul>
             </nav>
-            <section class="flex-container align-items-center subscribe-box">
-                <h2 class="visualy-hidden">Sign up for out newsletter</h2>
-                <p class="flex-container align-items-center font-style-italic subscribe-box__description">
+            <section class="subscribe-box">
+                <h2 class="subscribe-box__title">Sign up for out newsletter</h2>
+                <p class="subscribe-box__description">
                     Sign up for out newsletter to receive a handpicked selection of the best stories, recipes, and
                     news,
                     delivered weekly to your inbox.
                 </p>
                 <form class="subscribe-box__form" action="#" method="POST">
-                    <div class="flex-container">
-                        <label class="visualy-hidden" for="subscribe-box-form-email-field">Your email</label>
-                        <input class="subscribe-box__form-field-text" type="text" id="subscribe-box-form-email-field"
+                    <div class="subscribe-box__form-wrapper">
+                        <label class="subscribe-box__form-field-label" for="subscribe-box-form-email-field">Your email</label>
+                        <input class="subscribe-box__form-field" type="text" id="subscribe-box-form-email-field"
                             placeholder="Email">
                         <button class="subscribe-box__form-submit" type="submit">Subscribe</button>
                     </div>
                 </form>
             </section>
             <div class="xs-wrapper">
-                <section class="flex-container xs-align-items-center card-list">
-                    <h2 class="visualy-hidden">Recipe list</h2>
-                    <articlie class="flex-container card-item card-list__item">
+                <section class="card-list">
+                    <h2 class="card-list__title">Recipe list</h2>
+                    <articlie class="card-item card-list__item">
                         <div class="card-item__review">
                             <img class="card-item__review-img" src="./images/main/product1.jpg"
                                 alt="photo for the post &#34;2012 Best Summer Cookbooks&#34;">
@@ -175,7 +172,7 @@
                             <a class="card-item__read-more" href="">Read...</a>
                         </p>
                     </articlie>
-                    <articlie class="flex-container card-item card-list__item">
+                    <articlie class="card-item card-list__item">
                         <div class="card-item__review">
                             <img class="card-item__review-img" src="./images/main/product2.jpg"
                                 alt="photo for the post &#34;How to Make Vegetable Chips&#34;">
@@ -196,7 +193,7 @@
                             <a class="card-item__read-more" href="">Read...</a>
                         </p>
                     </articlie>
-                    <articlie class="flex-container card-item card-list__item">
+                    <articlie class="card-item card-list__item">
                         <div class="card-item__review">
                             <img class="card-item__review-img" src="./images/main/product3.jpg"
                                 alt="photo for the post &#34;Join us on Pinterest!&#34;">
@@ -214,7 +211,7 @@
                             <a class="card-item__read-more" href="">Read...</a>
                         </p>
                     </articlie>
-                    <articlie class="flex-container card-item card-list__item">
+                    <articlie class="card-item card-list__item">
                         <div class="card-item__review">
                             <img class="card-item__review-img" src="./images/main/product4.jpg"
                                 alt="photo for the post &#34;Recipes from a Sunday Supper&#34;">
@@ -241,9 +238,9 @@
     </div>
     <!--footer start-->
     <div class="xs-wrapper">
-        <footer class="flex-container align-items-center justify-content-space-between main-footer">
+        <footer class="main-footer">
             <div>
-                <ul class="flex-container main-footer__nav navigation-list">
+                <ul class="main-footer__nav navigation-list">
                     <li class="main-footer__nav-item navigation-list__item">
                         <a class="main-footer__nav-item-link navigation-list__item-link" href="#">Privacy Policy</a>
                     </li>
@@ -256,7 +253,7 @@
                 </ul>
                 <p class="main-footer__copyright">© 2016 Food Sense, all rights reserved</p>
             </div>
-            <ul class="flex-container main-footer__social-networks social-networks-list">
+            <ul class="main-footer__social-networks social-networks-list">
                 <li class="main-footer__social-networks-item social-networks-list__item">
                     <a class="main-footer__social-networks-item-link social-networks-list__item-link
                     main-footer__social-networks-item-link--facebook" href="#">

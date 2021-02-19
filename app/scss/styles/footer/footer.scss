@@ -1,4 +1,7 @@
 .main-footer {
+    @include flexContainerProperties($mainAxisAlignment: space-between,
+        $crossAxisAligment:center);
+
     font-size : 0.86rem;
     padding   : 25px 8px;
     border-top: 2px solid $main-footer-border-top;
@@ -15,4 +18,3 @@
         padding-right: 0;
     }
 }
-

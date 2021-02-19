@@ -1,16 +1,21 @@
 .banner {
     @include bgProperties($bgSize:cover, $bgImage:$banner-bg);
-    height                       : 445px;
-    overflow                     : hidden;
+    @include flexContainerProperties();
+
+    height  : 445px;
+    overflow: hidden;
 
     &__content {
-        flex-direction : column;
-        justify-content: flex-end;
-        margin-bottom  : 30px;
+        @include flexContainerProperties($direction: column,
+            $mainAxisAlignment: flex-end);
+            
+        margin-bottom         : 30px;
     }
 
     &__content-lead,
     &__content-description {
+        @extend %styleFontItalic;
+        
         margin    : 0;
         text-align: center;
     }
@@ -32,6 +37,7 @@
 
 
     @media (max-width: $s-width-screen) {
+        
         &__content {
             width        : 100%;
             margin-bottom: 0;

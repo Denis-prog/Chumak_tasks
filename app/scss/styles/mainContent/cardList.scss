@@ -1,7 +1,11 @@
 .card-list {
-    flex-wrap: wrap;
-    margin   : 0 -7.5px;
+    @include flexContainerProperties($wrap: wrap);
 
+    margin: 0 -7.5px;
+
+    &__title {
+        @extend %visually-hidden;
+    }
 
     @media (max-width: $s-width-screen) {
 
@@ -24,6 +28,8 @@
     @media (max-width: $xs-width-screen) {
 
         & {
+            @include flexContainerProperties($crossAxisAligment: center, $wrap: wrap);
+
             margin : 0;
             padding: 0 30px;
         }

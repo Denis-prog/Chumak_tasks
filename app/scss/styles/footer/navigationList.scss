@@ -1,5 +1,7 @@
 .navigation-list {
     @extend %listStyleReset;
+    @include flexContainerProperties();
+
     margin: 0 -0.5em;
 
     &__item {
@@ -13,6 +15,7 @@
 
     &__item-link {
         @extend %linkStyleBase;
+        
         letter-spacing: -0.02em;
     }
 }

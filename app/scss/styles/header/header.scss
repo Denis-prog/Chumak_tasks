@@ -1,18 +1,27 @@
 .main-header {
-    width         : 140px;
-    margin-right  : 45px;
-    flex-direction: column;
+    @include flexContainerProperties($crossAxisAligment: center,
+        $direction: column);
+
+    width       : 140px;
+    margin-right: 45px;
+
+    &__widgets {
+        width: 100%;
+    }
 
 
     @media (max-width: $m-width-screen) {
         width        : 100%;
         margin-bottom: 30px;
 
-        &__widget {
+        &__widgets {
             display: none;
         }
 
         &__nav {
+            @include flexContainerProperties($crossAxisAligment: center,
+                $mainAxisAlignment: space-between);
+
             width  : 100%;
             padding: 0;
         }
@@ -22,10 +31,11 @@
         }
 
         &__nav-list {
-            width          : 70%;
-            justify-content: space-around;
-            flex-wrap      : wrap;
-            overflow       : hidden;
+            @include flexContainerProperties($mainAxisAlignment: space-around,
+                $wrap: wrap);
+
+            width   : 70%;
+            overflow: hidden;
         }
 
         &__nav-list-item {
@@ -70,6 +80,9 @@
             }
 
             &__nav-list {
+                @include flexContainerProperties($mainAxisAlignment: space-between,
+                    $wrap: wrap);
+
                 margin-bottom: 30px;
                 width        : 100%;
             }

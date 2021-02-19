@@ -1,7 +1,9 @@
 .nav-tabs {
 
     &__list {
-        flex-wrap: wrap;
+        @include flexContainerProperties($wrap: wrap);
+        @extend %listStyleReset;
+
     }
 
     &__list-item {
@@ -17,6 +19,7 @@
 
     &__list-item-link {
         @extend %linkStyleBase;
+
         padding: 20px 15px;
         display: block;
 
@@ -33,11 +36,14 @@
     }
 
     &__list-item-subtitle {
+        @extend %styleFontItalic;
+        
         font-size: 0.71rem;
     }
 
 
     @media (max-width: $l-width-screen) {
+
         &__list-item-link {
             text-align: center;
             padding   : 10px 50px;
@@ -54,6 +60,7 @@
     }
 
     @media (max-width: $m-width-screen) {
+
         & {
             display: none;
         }

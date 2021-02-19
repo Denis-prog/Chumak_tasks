@@ -1,5 +1,6 @@
 .social-networks-list {
     @extend %listStyleReset;
+    @include flexContainerProperties();
 
     &__item-link {
         margin-left: 5px;

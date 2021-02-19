@@ -1,4 +1,6 @@
 .main-nav {
+    @extend %styleFontItalic;
+
     padding: 5px;
 
     &__logo-link {
@@ -20,8 +22,10 @@
     }
 
     &__list-item-link {
-        word-break: break-all;
         @extend %linkStyleBase;
+        @include flexContainerProperties($crossAxisAligment: center);
+
+        word-break: break-all;
 
         &::before {
             content     : "";

@@ -1,27 +1,42 @@
 .subscribe-box {
+    @include flexContainerProperties($crossAxisAligment: center);
+
     padding      : 10px 15px;
     margin       : 30px 0;
     border-bottom: 1px dotted $subscribe-box-border;
     border-top   : 1px dotted $subscribe-box-border;
 
-    &__decription {
+    &__title {
+        @extend %visually-hidden;
+    }
+
+    &__description {
+        @include flexContainerProperties($crossAxisAligment: center);
+        @extend %styleFontItalic;
+
         line-height : 1.15;
         margin-right: 20px;
 
         &::before {
             @include bgProperties($bgImage:$letter-icon);
-            content                       : "";
-            min-width                     : 32px;
-            height                        : 26px;
-            margin-right                  : 10px;
+
+            content     : "";
+            min-width   : 32px;
+            height      : 26px;
+            margin-right: 10px;
         }
     }
 
     &__form {
-        flex-shrink: 0
+        flex-shrink: 0;
+        width      : 30%;
     }
 
-    &__form-field-text {
+    &__form-wrapper {
+        @include flexContainerProperties();
+    }
+
+    &__form-field {
         margin-right: 5%;
         padding     : 5px;
         width       : 100%;
@@ -33,6 +48,10 @@
         }
     }
 
+    &__form-field-label {
+        @extend %visually-hidden;
+    }
+
     &__form-submit {
         font-size       : 0.71rem;
         padding         : 5px 17px;
@@ -41,11 +60,11 @@
         border-radius   : 2px;
     }
 
-    
+
     @media (max-width: $s-width-screen) {
 
         & {
-            flex-direction: column;
+            display: block;
         }
 
         &__description {
@@ -58,6 +77,7 @@
     }
 
     @media (max-width: $xs-width-screen) {
+
         &__form {
             width        : 85%;
             align-self   : flex-start;

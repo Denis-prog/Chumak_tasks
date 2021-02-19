@@ -1,8 +1,9 @@
 .card-item {
-    width         : calc(1 / #{$xl-count-card-row} * 100% - 15px);
-    flex-direction: column;
-    margin        : 0 7.5px 20px;
-    line-height   : 1.42;
+    @include flexContainerProperties($direction: column);
+
+    width      : calc(1 / #{$xl-count-card-row} * 100% - 15px);
+    margin     : 0 7.5px 20px;
+    line-height: 1.42;
 
     &__review {
         border       : 1px solid $card-item__review-border;
@@ -11,9 +12,9 @@
     }
 
     &__review-img {
-        width: 100%;
-        height   : auto;
-        display  : block;
+        width     : 100%;
+        height    : 100%;
+        display   : block;
     }
 
     &__title,
@@ -24,6 +25,7 @@
 
     &__title-link {
         @extend %linkStyleBase;
+
         align-self: flex-start;
     }
 

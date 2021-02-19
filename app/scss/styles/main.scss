@@ -8,96 +8,42 @@ html,
 body {
     font-size  : $font-size-default;
     font-family: Arial, Helvetica, sans-serif;
-    color      :  $font-default;
+    color      : $font-default;
 }
 
 body {
     min-height: 100vh;
 }
 
-.flex-container {
-    display: flex;
-}
-
-.visualy-hidden {
-    position: absolute;
-    clip    : rect(0 0 0 0);
-    width   : 1px;
-    height  : 1px;
-    margin  : -1px;
-}
-
-.link {
-    //дел
-    color          : $main-link;
-    text-decoration: none;
-}
-
-.nav-list {
-    //дел
-    margin    : 0;
-    padding   : 0;
-    list-style: none;
-}
-
 .main-wrapper {
-    flex-direction: column;
-    max-width     : 1100px;
-    padding       : 0 10px;
-    margin        : 30px auto 0;
+    @include flexContainerProperties($direction: column);
+
+    max-width: 1100px;
+    padding  : 0 10px;
+    margin   : 30px auto 0;
 }
 
 .main-wrapper__top {
+    @include flexContainerProperties;
+    
     flex-grow  : 1;
     flex-shrink: 0;
 }
 
-.align-items-center {
-    align-items: center;
-}
-
-.justify-content-space-between {
-    justify-content: space-between;
-}
-
-.font-style-italic {
-    font-style: italic;
-}
-
 @media (max-width: $m-width-screen) {
-    .l-flex-container {
-        display: flex;
-    }
-
-    .l-align-items-center {
-        align-items: center;
-    }
-
-    .l-justify-content-space-between {
-        justify-content: space-between;
-    }
 
     .main-wrapper__top {
         display: block;
     }
 }
 
-@media (max-width: $s-width-screen) {
-    .s-justify-content-space-between {
-        justify-content: space-between;
-    }
-}
-
 @media (max-width: $xs-width-screen) {
+
     .main-wrapper {
         padding: 0;
     }
 
     .xs-wrapper {
         padding: 0 15px;
-    }
-
-    .xs-align-items-center {
-        align-items: center;
     }
 }
