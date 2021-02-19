@@ -8,36 +8,34 @@
     &__content {
         @include flexContainerProperties($direction: column,
             $mainAxisAlignment: flex-end);
-            
-        margin-bottom         : 30px;
+
+        margin-bottom: 30px;
     }
 
     &__content-lead,
     &__content-description {
-        @extend %styleFontItalic;
-        
         margin    : 0;
         text-align: center;
     }
 
     &__content-lead {
+        @include fontProperties($style: italic, $size: 1.57rem, $lSpasing: 0.01em);
+
         align-self      : flex-start;
         padding         : 20px;
-        font-size       : 22px;
-        letter-spacing  : 0.01em;
         background-color: $banner__content-lead-bg;
     }
 
     &__content-description {
+        @include fontProperties($style: italic, $color: $banner__content-description-font);
+
         padding         : 14px 25px;
         background-color: $banner__content-description-bg;
-        font-size       : 1rem;
-        color           : $banner__content-description-font;
     }
 
 
     @media (max-width: $s-width-screen) {
-        
+
         &__content {
             width        : 100%;
             margin-bottom: 0;

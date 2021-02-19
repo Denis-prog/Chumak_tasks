@@ -14,8 +14,7 @@
     }
 
     &__item-link {
+        @include fontProperties($size: 0.86rem, $lSpasing: -0.02em);
         @extend %linkStyleBase;
-        
-        letter-spacing: -0.02em;
     }
 }

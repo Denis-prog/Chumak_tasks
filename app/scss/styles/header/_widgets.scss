@@ -4,21 +4,18 @@
         @extend %listStyleReset;
 
         &__item-title {
-            font-family   : Verdana, Arial, sans-serif;
-            font-size     : 0.86rem;
-            text-transform: uppercase;
+            @include fontProperties($family: #{Verdana, Arial, sans-serif},
+                $size: 0.86rem, $transform: uppercase);
+
             border-bottom : 1px dotted $widgets-list__item-title-border;
             padding-bottom: 5px;
-            font-weight   : 400;
         }
 
         &__item-link {
-            @extend %linkStyleBase;
-            @extend %styleFontItalic;
             @include flexContainerProperties($crossAxisAligment: center);
+            @include fontProperties($size: 0.71rem, $lHeight: 1.2, $style: italic, $color: inherit);
+            @extend %linkStyleBase;
 
-            font-size    : 0.71rem;
-            line-height  : 1.2;
             padding      : 10px 10px 10px 0;
             border       : 1px solid $widgets-list__item-link-border;
             border-radius: 5px;
@@ -30,14 +27,16 @@
                 margin   : 0 3px;
                 min-width: 19px;
                 height   : 14px;
+                height: 10px;
             }
         }
 
         &__item-description {
-            @extend %styleFontItalic;
-            
+            @include fontProperties($size: 0.71rem, $lHeight: 1.2, $style: italic);
+
             font-size  : 0.71rem;
             line-height: 1.9;
         }
     }
 }
+

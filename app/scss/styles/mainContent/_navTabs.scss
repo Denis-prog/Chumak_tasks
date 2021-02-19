@@ -29,16 +29,14 @@
     }
 
     &__list-item-title {
-        font-size    : 1.29rem;
-        font-weight  : 400;
+        @include fontProperties($size: 1.29rem, $color: inherit);
+
         margin       : 0;
         margin-bottom: 5px;
     }
 
     &__list-item-subtitle {
-        @extend %styleFontItalic;
-        
-        font-size: 0.71rem;
+        @include fontProperties($size: 0.71rem, $style: italic, $color: inherit);
     }
 
 

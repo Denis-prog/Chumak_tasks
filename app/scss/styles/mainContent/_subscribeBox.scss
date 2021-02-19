@@ -12,9 +12,9 @@
 
     &__description {
         @include flexContainerProperties($crossAxisAligment: center);
-        @extend %styleFontItalic;
 
-        line-height : 1.15;
+        @include fontProperties($style: italic, $lHeight: 1.15);
+
         margin-right: 20px;
 
         &::before {
@@ -43,8 +43,8 @@
         border      : 1px solid $subscribe-box__form-field-text-border;
 
         &::placeholder {
-            font-size: 0.71rem;
-            color    : $subscribe-box__form-field-text-font-placeholder;
+            @include fontProperties($size: 0.71rem,
+                $color: $subscribe-box__form-field-text-font-placeholder);
         }
     }
 

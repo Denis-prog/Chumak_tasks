@@ -1,5 +1,5 @@
 .main-nav {
-    @extend %styleFontItalic;
+    @include fontProperties($style: italic);
 
     padding: 5px;
 

@@ -9,10 +9,6 @@
     background-image   : url($bgImage);
 }
 
-@mixin dflex {
-    display: flex;
-}
-
 @mixin flexContainerProperties($direction: row,
     $mainAxisAlignment: flex-start,
     $crossAxisAligment: stretch,
@@ -24,4 +20,22 @@
     align-items    : $crossAxisAligment;
     flex-direction : $direction;
     flex-wrap      : $wrap;
+}
+
+
+@mixin fontProperties($family: $font-family-default, $size: 1rem,
+    $style: normal, $transform: none, $lSpasing: normal,
+    $color: $font-default, $weight: 400, $lHeight: 1) {
+
+    font: {
+        family: $family;
+        size  : $size;
+        style : $style;
+        weight: $weight;
+    }
+
+    text-transform: $transform;
+    letter-spacing: $lSpasing;
+    color         : $color;
+    line-height   : $lHeight;
 }

@@ -1,9 +1,11 @@
 //FONT-SIZE
 $font-size-default : 14px;
+$font-family-default: Arial,
+Helvetica,
+sans-serif;
 
 
-//IMAGE-PATH
-
+//===IMAGE-PATH====
 //header
 ////main-nav
 $main-nav-icon: (tastemakers: #{getPathImg('header', 'food-icon.svg')},
@@ -23,12 +25,11 @@ $banner-bg: getPathImg('main', 'siencist.png');
 $letter-icon: getPathImg('main', 'letter-icon.svg');
 
 
-//ADAPTIVE
-
+//===ADAPTIVE===
 //main-content
 ////card-item
-$xl-count-card-row:4;
-$s-count-card-row :2;
+$xl-count-card-row: 4;
+$s-count-card-row : 2;
 
 //breakPoints
 $l-width-screen : 1176px;

@@ -57,8 +57,8 @@
             }
         }
 
-
         @media (max-width: $s-width-screen) {
+
             &__nav-logo-link {
                 padding-right: 15px;
             }
@@ -75,8 +75,8 @@
         @media (max-width: $xs-width-screen) {
 
             &__nav {
-                flex-wrap      : wrap;
-                justify-content: center;
+                @include flexContainerProperties($wrap: wrap,
+                $crossAxisAligment: center, $mainAxisAlignment: center);
             }
 
             &__nav-list {
