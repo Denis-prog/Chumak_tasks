@@ -7,7 +7,8 @@ import groupMedia from 'gulp-group-css-media-queries';
 import autoprefixer from 'gulp-autoprefixer';
 import concat from 'gulp-concat';
 import uglifyPackage from 'gulp-uglify-es';
-const uglify = uglifyPackage.default;
+import uglifyCSS from 'gulp-uglifycss';
+const uglifyJS = uglifyPackage.default;
 import babel from 'gulp-babel';
 import imagemin from 'gulp-imagemin';
 import del from 'del';
@@ -61,14 +62,15 @@ export const html = () => {
 
 export const styles = () => {
     return src(SRC_PATH.css)
-        .pipe(scss({ outputStyle: 'expanded' }))
+        .pipe(scss())
         .pipe(groupMedia())
-        .pipe(concat('style.min.css'))
         .pipe(autoprefixer({
             overrideBrowserslist: [
-                "last 2 version"
+                "last 2 version",
             ],
         }))
+        .pipe(concat('style.min.css'))
+        .pipe(uglifyCSS())
         .pipe(dest(BUILD_PATH.css))
         .pipe(stream());
 }
@@ -82,7 +84,7 @@ export const scripts = () => {
             presets: ["@babel/preset-env"],
         },
         ))
-        .pipe(uglify())
+        .pipe(uglifyJS())
         .pipe(dest(BUILD_PATH.js))
         .pipe(stream())
 }
