@@ -2,6 +2,7 @@
 
     &__list {
         @include flexContainerProperties($wrap: wrap);
+
         @extend %listStyleReset;
 
     }

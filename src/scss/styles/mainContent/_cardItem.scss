@@ -20,6 +20,7 @@
     &__title-link {
         @include fontProperties($size: 1.14rem, $lHeight: 1.5,
             $lSpasing: -0.02em);
+
         @extend %linkStyleBase;
 
         margin    : 0 0 10px;

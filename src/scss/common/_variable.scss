@@ -5,7 +5,7 @@ Helvetica,
 sans-serif;
 
 
-//===IMAGE-PATH====
+//===image-path====
 //header
 ////main-nav
 $main-nav-icon: (tastemakers: #{getPathImg('header', 'food-icon.svg')},
@@ -14,7 +14,7 @@ $main-nav-icon: (tastemakers: #{getPathImg('header', 'food-icon.svg')},
     contribure: getPathImg('header', 'camera-icon.svg'),
     about: getPathImg('header', 'about-icon.svg'));
 
-//widgets
+////widgets
 $twitter-icon: getPathImg('header', 'tweet-icon.svg');
 
 //main-content

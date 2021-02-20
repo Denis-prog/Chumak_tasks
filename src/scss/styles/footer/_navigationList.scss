@@ -1,5 +1,6 @@
 .navigation-list {
     @extend %listStyleReset;
+
     @include flexContainerProperties();
 
     margin: 0 -0.5em;
@@ -15,6 +16,7 @@
 
     &__item-link {
         @include fontProperties($size: 0.86rem, $lSpasing: -0.02em);
+        
         @extend %linkStyleBase;
     }
 }

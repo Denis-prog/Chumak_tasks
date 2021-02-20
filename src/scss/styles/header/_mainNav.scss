@@ -23,6 +23,7 @@
 
     &__list-item-link {
         @extend %linkStyleBase;
+
         @include flexContainerProperties($crossAxisAligment: center);
 
         word-break: break-all;

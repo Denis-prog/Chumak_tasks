@@ -1,5 +1,6 @@
 .banner {
     @include bgProperties($bgSize:cover, $bgImage:$banner-bg);
+
     @include flexContainerProperties();
 
     height  : 445px;

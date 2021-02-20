@@ -13,7 +13,9 @@
 
         &__item-link {
             @include flexContainerProperties($crossAxisAligment: center);
+
             @include fontProperties($size: 0.71rem, $lHeight: 1.2, $style: italic, $color: inherit);
+
             @extend %linkStyleBase;
 
             padding      : 10px 10px 10px 0;
@@ -27,7 +29,7 @@
                 margin   : 0 3px;
                 min-width: 19px;
                 height   : 14px;
-                height: 10px;
+                height   : 10px;
             }
         }
 
@@ -39,4 +41,3 @@
         }
     }
 }
-

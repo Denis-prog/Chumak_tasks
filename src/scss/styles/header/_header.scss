@@ -9,9 +9,13 @@
         width: 100%;
     }
 
+
     @media (max-width: $m-width-screen) {
-        width        : 100%;
-        margin-bottom: 30px;
+        
+        & {
+            width        : 100%;
+            margin-bottom: 30px;
+        }
 
         &__widgets {
             display: none;
@@ -75,7 +79,7 @@
 
             &__nav {
                 @include flexContainerProperties($wrap: wrap,
-                $crossAxisAligment: center, $mainAxisAlignment: center);
+                    $crossAxisAligment: center, $mainAxisAlignment: center);
             }
 
             &__nav-list {
