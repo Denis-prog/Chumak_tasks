@@ -118,6 +118,4 @@ export const cleanDist = () => del(BASE_DIR_BUILD);
 const dev = series(parallel(html, scripts, styles, images), parallel(hotLoader, watching));
 
 export default dev;
-
 export const build = series(cleanDist, parallel(html, styles, scripts, images));
-
