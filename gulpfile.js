@@ -1,35 +1,27 @@
-const { src, dest, watch, parallel, series } = require('gulp');
-const browserSync = require('browser-sync').create();
-const scss = require('gulp-sass');
-const groupMedia = require('gulp-group-css-media-queries');
-const autoprefixer = require('gulp-autoprefixer');
-const concat = require('gulp-concat');
-const uglify = require('gulp-uglify-es').default;
-const babel = require('gulp-babel');
-const imagemin = require('gulp-imagemin');
-const del = require('del');
+import pkg from 'gulp';
+const { src, dest, watch, parallel, series } = pkg;
+import browserSyncPackage, { stream } from 'browser-sync';
+const browserSync = browserSyncPackage.create();
+import scss from 'gulp-sass';
+import groupMedia from 'gulp-group-css-media-queries';
+import autoprefixer from 'gulp-autoprefixer';
+import concat from 'gulp-concat';
+import uglifyPackage from 'gulp-uglify-es';
+const uglify = uglifyPackage.default;
+import babel from 'gulp-babel';
+import imagemin from 'gulp-imagemin';
+import del from 'del';
 
 const project_folder = 'dist';
-const app_folder = 'app';
+const src_folder = 'src';
 
 const PATH = {
-    BASE_DIR_PROJECT_PATH: `${app_folder}/`,
-    BASE_DIR_BUILD_PATH: `${project_folder}/`,
-    APP_FILE_SOURCE: {
-        html: `${app_folder}/*.html`,
-        css: `${app_folder}/scss/style.scss`,
-        js: `${app_folder}/script/main.js`,
-    },
-    APP_PATH: {
-        html: `${app_folder}/`,
-        css: `${app_folder}/css/`,
-        js: `${app_folder}/script/`,
-    },
-    BUILD_FILE_SOURCE: {
-        html: `${app_folder}/**/*.html`,
-        css: `${app_folder}/css/style.min.css`,
-        js: `${app_folder}/script/main.min.js`,
-        img: `${app_folder}/images/**/*.{jpg, png, svg, gif, ico, webp}`,
+    BASE_DIR_BUILD: `${project_folder}/`,
+    SRC_PATH: {
+        html: `${src_folder}/*.html`,
+        css: `${src_folder}/scss/style.scss`,
+        js: `${src_folder}/script/main.js`,
+        img: `${src_folder}/images/**/*.{jpg,png,svg,gif,ico,webp}`,
     },
     BUILD_PATH: {
         html: `${project_folder}/`,
@@ -38,38 +30,65 @@ const PATH = {
         img: `${project_folder}/images/`,
     },
     WATCH_PATH: {
-        html: `${app_folder}/*.html`,
-        css: `${app_folder}/scss/**/*.scss`,
-        js: `${app_folder}/script/**/*.js`,
-        img: `${app_folder}/images/**/*.{jpg, png, svg, gif, ico, webp}`,
+        html: `${src_folder}/*.html`,
+        css: `${src_folder}/scss/**/*.scss`,
+        js: `${src_folder}/script/**/*.js`,
+        img: `${src_folder}/images/**/*.{jpg, png, svg, gif, ico, webp}`,
     },
 }
 
 const {
-    BASE_DIR_PROJECT_PATH,
-    BASE_DIR_BUILD_PATH,
-    APP_FILE_SOURCE,
-    APP_PATH,
-    BUILD_FILE_SOURCE,
+    BASE_DIR_BUILD,
+    SRC_PATH,
     BUILD_PATH,
     WATCH_PATH,
 } = PATH;
 
-function hotLoader() {
+export const hotLoader = () => {
     browserSync.init({
         server: {
-            baseDir: BASE_DIR_PROJECT_PATH,
+            baseDir: BASE_DIR_BUILD,
         },
         notify: false,
     });
 }
 
-function cleanDist() {
-    return del(BASE_DIR_BUILD_PATH);
+export const html = () => {
+    return src(SRC_PATH.html)
+        .pipe(dest(BUILD_PATH.html))
+        .pipe(stream());
 }
 
-function images() {
-    return src(BUILD_FILE_SOURCE.img)
+export const styles = () => {
+    return src(SRC_PATH.css)
+        .pipe(scss({ outputStyle: 'expanded' }))
+        .pipe(groupMedia())
+        .pipe(concat('style.min.css'))
+        .pipe(autoprefixer({
+            overrideBrowserslist: [
+                "last 2 version"
+            ],
+        }))
+        .pipe(dest(BUILD_PATH.css))
+        .pipe(stream());
+}
+
+export const scripts = () => {
+    return src([
+        SRC_PATH.js,
+    ])
+        .pipe(concat('main.min.js'))
+        .pipe(babel({
+            presets: ["@babel/preset-env"],
+        },
+        ))
+        .pipe(uglify())
+        .pipe(dest(BUILD_PATH.js))
+        .pipe(stream())
+}
+
+export const images = () => {
+    return src(SRC_PATH.img)
         .pipe(imagemin(
             imagemin([
                 imagemin.gifsicle({ interlaced: true }),
@@ -84,58 +103,21 @@ function images() {
             ])
         ))
         .pipe(dest(BUILD_PATH.img))
+        .pipe(stream());
 }
 
-function scripts() {
-    return src([
-        APP_FILE_SOURCE.js,
-    ])
-        .pipe(concat('main.min.js'))
-        .pipe(babel({
-            presets: ["@babel/preset-env"],
-        },
-        ))
-        .pipe(uglify())
-        .pipe(dest(APP_PATH.js))
-        .pipe(browserSync.stream())
+export const watching = () => {
+    watch(WATCH_PATH.html, html);
+    watch(WATCH_PATH.css, styles);
+    watch(WATCH_PATH.js, scripts);
+    watch(WATCH_PATH.img, images)
 }
 
-function styles() {
-    return src(APP_FILE_SOURCE.css)
-        .pipe(scss({ outputStyle: 'expanded' }))
-        .pipe(groupMedia())
-        .pipe(concat('style.min.css'))
-        .pipe(autoprefixer({
-            overrideBrowserslist: [
-                "last 2 version"
-            ],
-        }))
-        .pipe(dest(APP_PATH.css))
-        .pipe(browserSync.stream())
-}
+export const cleanDist = () => del(BASE_DIR_BUILD);
 
-function build() {
-    return src([
-        BUILD_FILE_SOURCE.css,
-        BUILD_FILE_SOURCE.js,
-        BUILD_FILE_SOURCE.html,
-    ],
-        { base: BASE_DIR_PROJECT_PATH })
-        .pipe(dest(BASE_DIR_BUILD_PATH));
-}
+const dev = series(parallel(html, scripts, styles, images), parallel(hotLoader, watching));
 
-function watching() {
-    watch([WATCH_PATH.html]).on('change', browserSync.reload);
-    watch([WATCH_PATH.css], styles);
-    watch([WATCH_PATH.js, `!${BUILD_FILE_SOURCE.js}`], scripts);  //не отслеживать файл, который собирается для билда скриптом.
-}
+export default dev;
 
-exports.styles = styles;
-exports.watching = watching;
-exports.hotLoader = hotLoader;
-exports.scripts = scripts;
-exports.images = images;
-exports.cleanDist = cleanDist;
+export const build = series(cleanDist, parallel(html, scripts, styles));
 
-exports.build = series(cleanDist, build, images);
-exports.default = parallel(scripts, styles, hotLoader, watching);
