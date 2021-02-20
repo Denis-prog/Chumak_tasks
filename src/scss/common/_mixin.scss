@@ -22,7 +22,6 @@
     flex-wrap      : $wrap;
 }
 
-
 @mixin fontProperties($family: $font-family-default, $size: 1rem,
     $style: normal, $transform: none, $lSpasing: normal,
     $color: $font-default, $weight: 400, $lHeight: 1) {
