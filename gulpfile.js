@@ -1,18 +1,19 @@
 import pkg from 'gulp';
-const { src, dest, watch, parallel, series } = pkg;
-import browserSyncPackage, { stream } from 'browser-sync';
-const browserSync = browserSyncPackage.create();
+import browserSyncPackage from 'browser-sync';
 import scss from 'gulp-sass';
 import groupMedia from 'gulp-group-css-media-queries';
 import autoprefixer from 'gulp-autoprefixer';
 import concat from 'gulp-concat';
 import uglifyPackage from 'gulp-uglify-es';
 import uglifyCSS from 'gulp-uglifycss';
-const uglifyJS = uglifyPackage.default;
 import babel from 'gulp-babel';
 import imagemin from 'gulp-imagemin';
 import del from 'del';
 
+const { src, dest, watch, parallel, series } = pkg;
+const browserSync = browserSyncPackage.create();
+const stream = browserSyncPackage.stream;
+const uglifyJS = uglifyPackage.default;
 const project_folder = 'dist';
 const src_folder = 'src';
 
