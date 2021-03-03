@@ -30,7 +30,7 @@
         const digit = Math.pow(number % 10, 2);
         const countDigits = digit.toString().length;
 
-        return squareEveryDigit3(Math.floor(number / 10)) * (Math.pow(10, countDigits)) + digit;
+        return squareEveryDigit(Math.floor(number / 10)) * (Math.pow(10, countDigits)) + digit;
         //Math.pow(10, countDigits) оценка количества разрядов занимаемых предыдущим числом
     }
 
