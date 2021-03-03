@@ -76,4 +76,4 @@
     console.log(arrayDiff3([1, 2], [1]));
     console.log(arrayDiff3([1, 2, 2, 2, 3], [2]));
     console.log(arrayDiff3([1, 2, 2, 2, 3], [2, 9, 99, -1]));
-})()
+})();
