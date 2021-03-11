@@ -1,9 +1,4 @@
 (function () {
-    /* console.log(123);
-    arrayDiff([1, 2], [1]) == [2]
-    arrayDiff([1, 2, 2, 2, 3], [2]) == [1, 3]
-    arrayDiff([1, 2, 2, 2, 3], [2, 9, 99, -1]) == [1, 3]
-     */
 
     let arrayDiff1 = function arrayDiff(minuendArr, subtrahendArr) {
 
@@ -20,19 +15,16 @@
     console.log(arrayDiff1([1, 2, 2, 2, 3], [2]));
     console.log(arrayDiff1([1, 2, 2, 2, 3], [2, 9, 99, -1]));
 
+
     function arrayDiff2(minuendArr, subtrahendArr) {
+        for (let i = 0; i < subtrahendArr.length && minuendArr.length;) {
 
-        for (let i = 0; i < subtrahendArr.length; i++) {
+            let isMatch = minuendArr.indexOf(subtrahendArr[i]);
 
-            while (true) {
-                let isMatch = minuendArr.indexOf(subtrahendArr[i]);
+            if (!~isMatch) { i++; continue; }
 
-                if (!~isMatch) { break; }
-
-                minuendArr.splice(isMatch, 1);
-            }
+            minuendArr.splice(isMatch, 1);
         }
-
         return minuendArr;
     }
 
@@ -40,21 +32,19 @@
     console.log(arrayDiff2([1, 2, 2, 2, 3], [2]));
     console.log(arrayDiff2([1, 2, 2, 2, 3], [2, 9, 99, -1]));
 
-    function arrayDiff3(minuendArr, subtrahendArr) {
 
+    function arrayDiff3(minuendArr, subtrahendArr) {
         const result = [];
-        const cache = {
-            match: {},
-            noMatch: {},
-        };
+        const match = new Map();
+        const noMatch = new Map();
 
         for (let number of minuendArr) {
 
-            if (typeof cache['match'][number] === 'number') {
+            if (match.has(number)) {
                 continue;
             }
 
-            if (typeof cache['noMatch'][number] === 'number') {
+            if (noMatch.has(number)) {
                 result.push(number);
                 continue;
             }
@@ -63,11 +53,11 @@
 
             if (!~isMatch) {
                 result.push(number);
-                cache['noMatch'][number] = number;
+                noMatch.set(number, number);
                 continue;
             }
 
-            cache['match'][number] = number;
+            match.set(number, number);
         }
 
         return result;
@@ -76,4 +66,34 @@
     console.log(arrayDiff3([1, 2], [1]));
     console.log(arrayDiff3([1, 2, 2, 2, 3], [2]));
     console.log(arrayDiff3([1, 2, 2, 2, 3], [2, 9, 99, -1]));
+
+
+    function arrayDiff4(minuendArr, subtrahendArr) {
+
+        function getRegExp(number) {
+            if (number < 0) {
+                const numberABS = Math.abs(number);
+                return new RegExp(`-\\b${numberABS}\\b`);
+            }
+
+            return new RegExp(`(?<!\-)\\b${number}\\b`);
+        };
+
+        const result = [];
+        const subtrahendStr = subtrahendArr.join();
+
+        minuendArr.forEach(element => {
+            const regExp = getRegExp(element);
+
+            if (!regExp.test(subtrahendStr)) {
+                result.push(element)
+            }
+        });
+
+        return result;
+    }
+
+    console.log(arrayDiff4([1, 2, 1, -1], [1]));
+    console.log(arrayDiff4([1, 2, 2, 2, 3], [2]));
+    console.log(arrayDiff4([1, 2, 2, 2, 3], [2, 9, 99, -1]));
 })();
