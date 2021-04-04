@@ -1,16 +1,26 @@
 export const ACTION_CONSTANTS = {
-    SHOW_CONTROL_DETAILS: 'showControldetails',
-    COUNTER_REPEAT: 'counter',
+    SHOW_CONTROL_DETAILS: 'showControlDetails',
+    COUNTER_REPEAT: 'counterRepeat',
+    SAVE_WRONG_COMAND: 'saveWrongComand',
     EAT: 'eat',
     DRINK: 'drink',
     REST: 'rest',
     SPORT: 'sport',
 }
 
-const { SHOW_CONTROL_DETAILS, COUNTER_REPEAT, EAT, DRINK, REST, SPORT } = ACTION_CONSTANTS;
+const {
+    SHOW_CONTROL_DETAILS,
+    COUNTER_REPEAT,
+    SAVE_WRONG_COMAND,
+    EAT,
+    DRINK,
+    REST,
+    SPORT,
+} = ACTION_CONSTANTS;
 
 export const showControldetailsAC = (type) => ({ type: SHOW_CONTROL_DETAILS, payload: type });
 export const counterRepeatAC = () => ({ type: COUNTER_REPEAT });
+export const saveWrongComandAC = (comand) => ({ type: SAVE_WRONG_COMAND, payload: comand });
 export const eatAC = (id) => ({ type: EAT, payload: id });
 export const drinkAC = (id) => ({ type: DRINK, payload: id });
 export const restAC = (id) => ({ type: REST, payload: id });

@@ -3,5 +3,5 @@ export {
     handlerActionCreators,
     showControldetailsAC,
     counterRepeatAC,
-    eatAC,
+    saveWrongComandAC,
 } from './actionsCreators';

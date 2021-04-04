@@ -1,5 +1,6 @@
 import React from 'react';
 import icon from './assets/ok.png';
+import './pictureIndicator.scss';
 
 const PictureIndicator = (props) => {
     const { mark, img } = props;

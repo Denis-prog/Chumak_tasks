@@ -8,7 +8,8 @@ const MainNavigationContainer = (props) => {
     )
 }
 
-export default withStyle(MainNavigationContainer, 
+export default withStyle(MainNavigationContainer,
     'main-navigation__list',
     'main-navigation__list-item',
-    'main-navigation__list-item-link');
+    'main-navigation__list-item-link',
+);

@@ -1,0 +1,27 @@
+.history-list {
+    position  : absolute;
+    top       : 0;
+    right     : 0;
+    left      : 0;
+    max-height    : 80vh;
+    overflow-y: auto;
+
+    &__item {
+        margin-bottom: 10px;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    &__item-comand {
+
+        &_succes {
+            color: #008000;
+        }
+
+        &_error {
+            color: #ff0000;
+        }
+    }
+}

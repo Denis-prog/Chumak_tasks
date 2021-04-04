@@ -1,12 +1,13 @@
 import React from 'react';
 import Page from '../Common/Page';
-import MainNavigationContainer from '../HomePage/MainNavigation';
+import Header from './Header';
 import Main from './Main';
+import './homePage.scss';
 
 const HomePage = () => {
     return (
         <Page
-            header={<MainNavigationContainer />}
+            header={<Header />}
             main={<Main />} />
     );
 };

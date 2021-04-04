@@ -1,14 +1,14 @@
 import React from 'react';
-import { Link as NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import cn from 'classnames';
 import './link.scss';
 
 const Link = (props) => {
-    const { path, label, className } = props;
+    const { path, label, className, activeClassName } = props;
     const classes = cn('link', className)
 
     return (
-        <NavLink className={classes} to={path}>{label}</NavLink>
+        <NavLink activeClassName={activeClassName || 'link_active'} className={classes} exact to={path}>{label}</NavLink>
     );
 }
 

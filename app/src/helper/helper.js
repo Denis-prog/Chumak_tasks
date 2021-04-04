@@ -33,23 +33,27 @@ export const transformComand = (controlDetailsList, comand) => {
     const result = [];
     const separateComand = comand.split(/\s{0,},\s{0,}/ig); //разделение по ','. до и после запятой любые количества пробелов
 
-    separateComand.forEach(item => {
-        let [action, title] = item.split(/\s+(?=[а-я]{0,}$)/ig); //разделить по последнему пробелу в строке
-        action = translateAction(action.trim());
-
-        if (!action) {
-            result.push({ item, isError: true, });
+    separateComand.forEach((item, index) => {
+        if (!item) {
             return;
         }
 
-        const id = getControlDetailId(controlDetailsList, action, title.trim());
+        const [action, title] = item.split(/\s+(?=[а-я]{1,}$)/ig); //разделить по последнему пробелу в строке
+        const actionTranslated = translateAction(action.trim());
+
+        if (!actionTranslated) {
+            result.push({ action: separateComand[index], isError: true, });
+            return;
+        }
+
+        const id = getControlDetailId(controlDetailsList, actionTranslated, title.trim());
 
         if (!id) {
-            result.push({ item, isError: true, });
+            result.push({ action: separateComand[index], isError: true, });
             return;
         }
 
-        result.push({ action, id, isError: false, });
+        result.push({ action:actionTranslated, id, isError: false, });
     });
 
     return result;

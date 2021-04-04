@@ -1,6 +1,6 @@
 import React from 'react';
 import { transformComand } from '../../../../helper';
-import { handlerActionCreators } from '../../../../store/actionCreators';
+import { handlerActionCreators, saveWrongComandAC } from '../../../../store/actionCreators';
 import './comandLine.scss';
 
 const ComandLine = (props) => {
@@ -8,11 +8,26 @@ const ComandLine = (props) => {
 
     const onSubmit = (e) => {
         e.preventDefault();
+
+        if (!value.trim()) {
+            updateValue('');
+            return;
+        }
+
         const comands = transformComand(сontrolDetails, value);
+
         comands.forEach(item => {
-            const { action, id } = item;
+            const { action, id, isError } = item;
+
+            if (isError) {
+                dispatch(saveWrongComandAC(action));
+                return;
+            }
+
             dispatch(handlerActionCreators[action](id))
         });
+
+        updateValue('');
     }
 
     return (

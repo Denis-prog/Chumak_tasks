@@ -1,6 +1,14 @@
 import { ACTION_CONSTANTS } from "./actionCreators";
 
-const { SHOW_CONTROL_DETAILS, COUNTER_REPEAT, EAT, DRINK, REST, SPORT } = ACTION_CONSTANTS;
+const {
+    SHOW_CONTROL_DETAILS,
+    COUNTER_REPEAT,
+    SAVE_WRONG_COMAND,
+    EAT,
+    DRINK,
+    REST,
+    SPORT,
+} = ACTION_CONSTANTS;
 
 const getCountOverestimationIndicators = (state, indicators = ['thirst', 'hunger', 'fatique']) => {
     let count = 0;
@@ -59,9 +67,20 @@ export function reducer(state, action) {
                 fatigue: newCountFatigue,
             };
 
-       /*      console.log(x); */
+            /*     console.log(x); */
             return x;
 
+        }
+        case SAVE_WRONG_COMAND: {
+            const { payload } = action;
+            console.log('payload: ', payload);
+
+            return (
+                {
+                    ...state,
+                    history: [...state.history, { title: payload, isError: true, }]
+                }
+            );
         }
         case SHOW_CONTROL_DETAILS: {
             const { payload } = action;

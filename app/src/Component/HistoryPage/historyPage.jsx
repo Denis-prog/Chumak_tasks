@@ -1,11 +1,15 @@
 import React from 'react';
-import HistoryList from './HistoryList';
+import Header from './Header';
+import Main from './Main';
+import Page from '../Common/Page';
+import withStyle from '../../HOC/withStyle';
+import './historyPage.scss';
 
-const HistoryPage = () => {
+const HistoryPage = (props) => {
     return (
-
-        <HistoryList />
+        <Page {...props} className="page-history" header={<Header />}
+            main={< Main />} />
     );
 };
 
-export default HistoryPage;
+export default withStyle(HistoryPage, 'page-history__main');

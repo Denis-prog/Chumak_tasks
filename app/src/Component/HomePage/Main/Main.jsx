@@ -3,7 +3,7 @@ import PictureIndicatorListContainer from './PictureIndicatorList';
 import IndicatorListContainer from './IndicatorList';
 import ControlListContainer from './ControlList';
 import ControlDetailsContainer from './ControlDetails';
-import ComandLineContainer from './';
+import ComandLineContainer from './ComandLine';
 
 const Main = () => {
     return (
@@ -36,9 +36,3 @@ const Main = () => {
 };
 
 export default Main;
-
-{/* <section className="row row_top">
-<section className="column">
-    {header}
-</section>
-</section> */}
