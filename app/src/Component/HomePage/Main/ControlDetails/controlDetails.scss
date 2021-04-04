@@ -1,0 +1,28 @@
+.details-list {
+
+    &__item {
+        margin-bottom: 10px;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
+
+.detail {
+    &_eat {
+        background-color: #e74c3c;
+    }
+
+    &_drink {
+        background-color: #3498db
+    }
+
+    &_rest {
+        background-color: #e67e22;
+    }
+
+    &_sport {
+        background-color: #95a5a6;
+    }
+}

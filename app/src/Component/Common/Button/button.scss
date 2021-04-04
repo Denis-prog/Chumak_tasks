@@ -1,0 +1,12 @@
+.button {
+    cursor: pointer;
+
+    &:disabled {
+        background-color: rgb(187, 187, 187);
+        opacity         : 0.5;
+    }
+
+    &:active {
+        outline: 1px solid black;
+    }
+}

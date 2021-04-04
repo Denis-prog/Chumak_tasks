@@ -1,0 +1,30 @@
+.page {
+    max-width: 1140px;
+    margin   : 0 auto;
+
+    &__header {
+       margin-bottom: 100px;
+    }
+}
+
+.row {
+    display: flex;
+    width  : 100%;
+
+    &_top {
+        margin-bottom: 40px;
+    }
+
+    &_bottom {
+        margin: 40px 0;
+    }
+}
+
+.column {
+    width    : 100%;
+    flex-wrap: nowrap;
+
+    &_left {
+        margin-right: 40px;
+    }
+}

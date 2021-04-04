@@ -1,0 +1,24 @@
+.indicator {
+    &__title {
+        display: block;
+    }
+
+    &__progress {
+        width           : 100%;
+        background-color: #fff;
+        border          : 1px solid #34495E;
+        height          : 10px;
+
+        &::-webkit-progress-bar {
+            background-color: #fff;
+        }
+
+        &::-webkit-progress-value {
+            background-color: red;
+        }
+
+        &::-moz-progress-bar {
+            background-color: red;
+        }
+    }
+}

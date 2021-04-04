@@ -1,0 +1,27 @@
+.control-list {
+    height: 100%;
+
+    &__item {
+        margin-bottom: 10px;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
+
+.control_eat {
+    background-color: #e74c3c;
+}
+
+.control_drink {
+    background-color: #3498db
+}
+
+.control_rest {
+    background-color: #e67e22;
+}
+
+.control_sport {
+    background-color: #95a5a6;
+}

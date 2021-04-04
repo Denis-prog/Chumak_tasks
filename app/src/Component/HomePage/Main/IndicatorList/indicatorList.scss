@@ -1,0 +1,55 @@
+.indicator-list {
+    height: 100%;
+
+    &__item {
+        margin-bottom: 10px;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
+
+.indicator__progress_health {
+
+    &::-webkit-progress-value {
+        background-color: #E74C3C;
+    }
+
+    &::-moz-progress-bar {
+        background-color: #E74C3C;
+    }
+}
+
+.indicator__progress_thirst {
+
+    &::-webkit-progress-value {
+        background-color: #3498DB;
+    }
+
+    &::-moz-progress-bar {
+        background-color: #3498DB;
+    }
+}
+
+.indicator__progress_hunger {
+
+    &::-webkit-progress-value {
+        background-color: #E67E22;
+    }
+
+    &::-moz-progress-bar {
+        background-color: #E67E22;
+    }
+}
+
+.indicator__progress_fatigue {
+
+    &::-webkit-progress-value {
+        background-color: #95A5A6;
+    }
+
+    &::-moz-progress-bar {
+        background-color: #95A5A6;
+    }
+}
