@@ -1,3 +1,10 @@
+import {
+    getCountOverestimationIndicators,
+    getControlDetailsiItem,
+    getControlDetail,
+    checkOutBoundsMinValue,
+    checkOutBoundsMaxValue,
+} from '../helper';
 import { ACTION_CONSTANTS } from "./actionCreators";
 
 const {
@@ -10,18 +17,6 @@ const {
     SPORT,
     RESTART,
 } = ACTION_CONSTANTS;
-
-const getCountOverestimationIndicators = (state, indicators = ['thirst', 'hunger', 'fatique']) => {
-    let count = 0;
-
-    indicators.forEach((item) => {
-        if (state[item] === 100) {
-            count += 1;
-        }
-    });
-
-    return count;
-};
 
 export const initialState = {
     currentControlDetails: null,
@@ -49,18 +44,20 @@ export function reducer(state, action) {
 
     switch (type) {
         case COUNTER_REPEAT: {
+            const { maxValueIndicator, minValueIndicator } = state;
             const count = getCountOverestimationIndicators(state);
+
             let newCountHealth = state.health - state.healthStepUnit - count * 10; //count равен количеству индикаторов, которые имеют максимальное значение
-            newCountHealth = newCountHealth < 0 ? 0 : newCountHealth;
+            newCountHealth = checkOutBoundsMinValue(newCountHealth, minValueIndicator);
 
             let newCountThirst = state.thirst + state.thirstStepUnit;
-            newCountThirst = newCountThirst > 100 ? 100 : newCountThirst;
+            newCountThirst = checkOutBoundsMaxValue(newCountThirst, maxValueIndicator);
 
             let newCountHunger = state.hunger + state.hungerStepUnit;
-            newCountHunger = newCountHunger > 100 ? 100 : newCountHunger;
+            newCountHunger = checkOutBoundsMaxValue(newCountHunger, maxValueIndicator);
 
             let newCountFatigue = state.fatigue + state.fatigueStepUnit;
-            newCountFatigue = newCountFatigue > 100 ? 100 : newCountFatigue
+            newCountFatigue = checkOutBoundsMaxValue(newCountFatigue, maxValueIndicator);
 
             const x = {
                 ...state,
@@ -76,7 +73,6 @@ export function reducer(state, action) {
         }
         case SAVE_WRONG_COMAND: {
             const { payload } = action;
-            console.log('payload: ', payload);
 
             return (
                 {
@@ -89,6 +85,7 @@ export function reducer(state, action) {
             const { payload } = action;
 
             if (payload === state.currentControlDetails) {
+
                 return {
                     ...state,
                     currentControlDetails: null,
@@ -101,19 +98,17 @@ export function reducer(state, action) {
             }
         }
         case EAT: {
-            const { payload } = action;
-            const { сontrolDetails } = state;
-            const controlDetailsiItem = сontrolDetails
-                .find((item) => item.type === 'eat');
-
-            const { value, title } = controlDetailsiItem.elements.find((item) => item.id === payload);
+            const { payload: id } = action;
+            const { сontrolDetails, minValueIndicator, maxValueIndicator } = state;
+            const controlDetailsiItem = getControlDetailsiItem(сontrolDetails, 'eat');
+            const { value, title } = getControlDetail(controlDetailsiItem, id);
             const { hunger: costHunger } = value;
 
             let newValueHunger = state.hunger - costHunger;
-            newValueHunger = newValueHunger < 0 ? 0 : newValueHunger;
+            newValueHunger = checkOutBoundsMinValue(newValueHunger, minValueIndicator);
 
             let newValueHealth = state.health + costHunger * 0.5;
-            newValueHealth = newValueHealth > 100 ? 100 : newValueHealth;
+            newValueHealth = checkOutBoundsMaxValue(newValueHealth, maxValueIndicator);
 
             return (
                 {
@@ -125,18 +120,17 @@ export function reducer(state, action) {
             )
         }
         case DRINK: {
-            const { payload } = action;
-            const { сontrolDetails } = state;
-            const controlDetailsiItem = сontrolDetails
-                .find((item) => item.type === 'drink');
-
-            const { value, title } = controlDetailsiItem.elements.find((item) => item.id === payload);
+            const { payload: id } = action;
+            const { сontrolDetails, minValueIndicator, maxValueIndicator } = state;
+            const controlDetailsiItem = getControlDetailsiItem(сontrolDetails, 'drink');
+            const { value, title } = getControlDetail(controlDetailsiItem, id);
             const { thirst: costThirst } = value;
 
             let newValueThirst = state.thirst - costThirst;
-            newValueThirst = newValueThirst < 0 ? 0 : newValueThirst;
+            newValueThirst = checkOutBoundsMinValue(newValueThirst, minValueIndicator);
+
             let newValueHealth = state.health + costThirst * 0.5;
-            newValueHealth = newValueHealth > 100 ? 100 : newValueHealth;
+            newValueHealth = checkOutBoundsMaxValue(newValueHealth, maxValueIndicator);
 
             return (
                 {
@@ -148,19 +142,17 @@ export function reducer(state, action) {
             )
         }
         case REST: {
-            const { payload } = action;
-            const { сontrolDetails } = state;
-            const controlDetailsiItem = сontrolDetails
-                .find((item) => item.type === 'rest');
-
-            const { value, title } = controlDetailsiItem.elements.find((item) => item.id === payload);
+            const { payload: id } = action;
+            const { сontrolDetails, minValueIndicator, maxValueIndicator } = state;
+            const controlDetailsiItem = getControlDetailsiItem(сontrolDetails, 'rest');
+            const { value, title } = getControlDetail(controlDetailsiItem, id);
             const { fatigue: costFatigue } = value;
 
             let newValueFatigue = state.fatigue - costFatigue;
-            newValueFatigue = newValueFatigue < 0 ? 0 : newValueFatigue;
+            newValueFatigue = checkOutBoundsMinValue(newValueFatigue, minValueIndicator);
 
             let newValueHealth = state.health + costFatigue * 0.75;
-            newValueHealth = newValueHealth > 100 ? 100 : newValueHealth;
+            newValueHealth = checkOutBoundsMaxValue(newValueHealth, maxValueIndicator);
 
             return (
                 {
@@ -172,25 +164,23 @@ export function reducer(state, action) {
             )
         }
         case SPORT: {
-            const { payload } = action;
-            const { сontrolDetails } = state;
-            const controlDetailsiItem = сontrolDetails
-                .find((item) => item.type === 'sport');
-
-            const { value, title } = controlDetailsiItem.elements.find((item) => item.id === payload);
+            const { payload: id } = action;
+            const { сontrolDetails, maxValueIndicator } = state;
+            const controlDetailsiItem = getControlDetailsiItem(сontrolDetails, 'sport');
+            const { value, title } = getControlDetail(controlDetailsiItem, id);
             const { thirst: costThirst, hunger: costHunger, fatigue: costFatigue } = value;
 
             let newValueFatigue = state.fatigue + costFatigue;
-            newValueFatigue = newValueFatigue > 100 ? 100 : newValueFatigue;
+            newValueFatigue = checkOutBoundsMaxValue(newValueFatigue, maxValueIndicator);
 
             let newValueThirst = state.thirst + costThirst;
-            newValueThirst = newValueThirst > 100 ? 100 : newValueThirst;
+            newValueThirst = checkOutBoundsMaxValue(newValueThirst, maxValueIndicator);
 
             let newValueHunger = state.hunger + costHunger;
-            newValueHunger = newValueHunger > 100 ? 100 : newValueHunger;
+            newValueHunger = checkOutBoundsMaxValue(newValueHunger, maxValueIndicator);
 
             let newValueHealth = state.health + costFatigue * 0.75;
-            newValueHealth = newValueHealth > 100 ? 100 : newValueHealth;
+            newValueHealth = checkOutBoundsMaxValue(newValueHealth, maxValueIndicator);
 
             return (
                 {
@@ -204,6 +194,7 @@ export function reducer(state, action) {
             );
         }
         case RESTART: {
+
             return (
                 {
                     ...state,
@@ -216,7 +207,6 @@ export function reducer(state, action) {
                 }
             );
         }
-
         default: return state;
     }
 }

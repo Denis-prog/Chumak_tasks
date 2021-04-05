@@ -59,3 +59,27 @@ export const transformComand = (controlDetailsList, comand) => {
     return result;
 };
 
+export const getCountOverestimationIndicators = (state, indicators = ['thirst', 'hunger', 'fatique']) => {
+    let count = 0;
+
+    indicators.forEach((item) => {
+        if (state[item] === 100) {
+            count += 1;
+        }
+    });
+
+    return count;
+};
+
+export const getControlDetailsiItem = (сontrolDetails, type) => {
+    return сontrolDetails
+        .find((item) => item.type === type);
+};
+
+export const getControlDetail = (сontrolDetailsItem, id) => {
+    return сontrolDetailsItem.elements.find((item) => item.id === id);
+};
+
+export const checkOutBoundsMinValue = (currentValue, minValue) => currentValue < minValue ? minValue : currentValue;
+
+export const checkOutBoundsMaxValue = (currentValue, maxValue) => currentValue > maxValue ? maxValue : currentValue;
