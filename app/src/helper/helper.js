@@ -41,7 +41,7 @@ export const transformComand = (controlDetailsList, comand) => {
         const [action, title] = item.split(/\s+(?=[а-я]{1,}$)/ig); //разделить по последнему пробелу в строке
         const actionTranslated = translateAction(action.trim());
 
-        if (!actionTranslated) {
+        if (!actionTranslated || !title) {
             result.push({ action: separateComand[index], isError: true, });
             return;
         }
@@ -53,7 +53,7 @@ export const transformComand = (controlDetailsList, comand) => {
             return;
         }
 
-        result.push({ action:actionTranslated, id, isError: false, });
+        result.push({ action: actionTranslated, id, isError: false, });
     });
 
     return result;

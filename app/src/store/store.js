@@ -33,6 +33,8 @@ export const initialState = {
     thirstStepUnit: 4,
     hungerStepUnit: 4,
     fatigueStepUnit: 1,
+    maxValueIndicator: 100,
+    minValueIndicator: 0,
     сontrolDetails: [
         { id: 1, type: 'eat', elements: [{ id: 1, title: 'Яблоко', value: { hunger: 1 } }, { id: 2, title: 'Персик', value: { hunger: 5 } }, { id: 3, title: 'Колбаса', value: { hunger: 10 } }] },
         { id: 2, type: 'drink', elements: [{ id: 1, title: 'Вода', value: { thirst: 1 } }, { id: 2, title: 'Лимонад', value: { thirst: 5 } }, { id: 3, title: 'Квас', value: { thirst: 10 } }] },

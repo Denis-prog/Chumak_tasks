@@ -8,14 +8,22 @@ const Page = (props) => {
     const pageClasses = cn('page', className)
     const mainClasses = cn('page__main', clns && clns[0]);
 
+    const Header = header ?
+        (<header className="page__header">
+            {header}
+        </header>)
+        : null;
+
+    const Main = main ?
+        (<main className={mainClasses}>
+            {main}
+        </main >)
+        : null;
+
     return (
         <div className={pageClasses}>
-            <header className="page__header">
-                {header}
-            </header>
-            <main className={mainClasses}>
-                {main}
-            </main >
+            {Header}
+            {Main}
         </div>
     );
 };
