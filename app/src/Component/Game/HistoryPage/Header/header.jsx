@@ -1,5 +1,5 @@
 import React from 'react';
-import MainNavigation from '../../Common/MainNavigation';
+import MainNavigation from '../../../Common/MainNavigation';
 
 const Header = () => {
     return (

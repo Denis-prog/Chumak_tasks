@@ -4,4 +4,5 @@ export {
     showControldetailsAC,
     counterRepeatAC,
     saveWrongComandAC,
+    restartAC,
 } from './actionsCreators';

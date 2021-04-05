@@ -1,6 +1,6 @@
 import React from 'react';
-import { useStore } from '../../../../context';
-import withStyle from '../../../../HOC/withStyle';
+import { useStore } from '../../../../../context';
+import withStyle from '../../../../../HOC/withStyle';
 import ControlList from './ControlList';
 
 const ControlListContainer = (props) => {

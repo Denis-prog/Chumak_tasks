@@ -1,6 +1,6 @@
 import React from 'react';
-import { useStore } from '../../../../context';
-import withStyle from '../../../../HOC/withStyle';
+import { useStore } from '../../../../../context';
+import withStyle from '../../../../../HOC/withStyle';
 import HistoryList from './historyList';
 
 const HistoryListContainer = (props) => {

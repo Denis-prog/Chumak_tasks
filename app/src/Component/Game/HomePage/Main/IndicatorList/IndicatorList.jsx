@@ -1,6 +1,6 @@
 import React from 'react';
-import List from '../../../Common/List';
-import Indicator from '../../../Common/Indicator';
+import List from '../../../../Common/List';
+import Indicator from '../../../../Common/Indicator';
 import './indicatorList.scss';
 
 const IndicatorList = (props) => {

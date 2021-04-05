@@ -6,6 +6,7 @@ export const ACTION_CONSTANTS = {
     DRINK: 'drink',
     REST: 'rest',
     SPORT: 'sport',
+    RESTART: 'restart',
 }
 
 const {
@@ -16,6 +17,7 @@ const {
     DRINK,
     REST,
     SPORT,
+    RESTART,
 } = ACTION_CONSTANTS;
 
 export const showControldetailsAC = (type) => ({ type: SHOW_CONTROL_DETAILS, payload: type });
@@ -25,6 +27,7 @@ export const eatAC = (id) => ({ type: EAT, payload: id });
 export const drinkAC = (id) => ({ type: DRINK, payload: id });
 export const restAC = (id) => ({ type: REST, payload: id });
 export const sportAC = (id) => ({ type: SPORT, payload: id });
+export const restartAC = () => ({ type: RESTART });
 
 export const handlerActionCreators = {
     eat: (value) => eatAC(value),

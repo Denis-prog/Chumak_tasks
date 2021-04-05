@@ -1,6 +1,6 @@
 import React from 'react';
-import List from '../../../Common/List';
-import PictureIndicator from '../../../Common/PictureIndicator';
+import List from '../../../../Common/List';
+import PictureIndicator from '../../../../Common/PictureIndicator';
 import './picture-indicator-list.scss';
 
 const PictureIndicatorList = (props) => {

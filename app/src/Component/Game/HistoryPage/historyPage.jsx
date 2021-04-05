@@ -1,8 +1,8 @@
 import React from 'react';
 import Header from './Header';
 import Main from './Main';
-import Page from '../Common/Page';
-import withStyle from '../../HOC/withStyle';
+import Page from '../../Common/Page';
+import withStyle from '../../../HOC/withStyle';
 import './historyPage.scss';
 
 const HistoryPage = (props) => {

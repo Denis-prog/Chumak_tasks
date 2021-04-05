@@ -1,5 +1,5 @@
 import React from 'react';
-import List from '../../../Common/List';
+import List from '../../../../Common/List';
 import './historyList.scss';
 
 const HistoryList = (props) => {

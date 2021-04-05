@@ -1,6 +1,6 @@
 import React from 'react';
-import { transformComand } from '../../../../helper';
-import { handlerActionCreators, saveWrongComandAC } from '../../../../store/actionCreators';
+import { transformComand } from '../../../../../helper';
+import { handlerActionCreators, saveWrongComandAC } from '../../../../../store/actionCreators';
 import './comandLine.scss';
 
 const ComandLine = (props) => {

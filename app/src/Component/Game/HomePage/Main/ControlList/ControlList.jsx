@@ -1,7 +1,7 @@
 import React from 'react';
-import List from '../../../Common/List';
-import Control from '../../../Common/Control';
-import { showControldetailsAC } from '../../../../store/actionCreators';
+import List from '../../../../Common/List';
+import Control from '../../../../Common/Control';
+import { showControldetailsAC } from '../../../../../store/actionCreators';
 import './controlList.scss';
 
 const ControlList = (props) => {

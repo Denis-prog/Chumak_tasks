@@ -8,6 +8,7 @@ const {
     DRINK,
     REST,
     SPORT,
+    RESTART,
 } = ACTION_CONSTANTS;
 
 const getCountOverestimationIndicators = (state, indicators = ['thirst', 'hunger', 'fatique']) => {
@@ -199,6 +200,19 @@ export function reducer(state, action) {
                     thirst: newValueThirst,
                     health: newValueHealth,
                     history: [...state.history, { title: `Заниматься спортом. Вид спорта: ${title}` }],
+                }
+            );
+        }
+        case RESTART: {
+            return (
+                {
+                    ...state,
+                    currentControlDetails: null,
+                    health: 100,
+                    thirst: 0,
+                    hunger: 0,
+                    fatigue: 0,
+                    history: [],
                 }
             );
         }

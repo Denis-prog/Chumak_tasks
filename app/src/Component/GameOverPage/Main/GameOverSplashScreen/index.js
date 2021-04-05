@@ -1,1 +1,1 @@
-export  {default} from './gameOverSplashScreen';
+export  {default} from './gameOverSplashScreenContainer';

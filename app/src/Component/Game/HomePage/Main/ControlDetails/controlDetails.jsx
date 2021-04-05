@@ -1,7 +1,7 @@
 import React from 'react';
-import List from '../../../Common/List';
-import Detail from '../../../Common/Detail';
-import { handlerActionCreators } from '../../../../store/actionCreators';
+import List from '../../../../Common/List';
+import Detail from '../../../../Common/Detail';
+import { handlerActionCreators } from '../../../../../store/actionCreators';
 import './controlDetails.scss';
 
 

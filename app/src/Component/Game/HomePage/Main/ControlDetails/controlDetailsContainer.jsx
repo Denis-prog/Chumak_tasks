@@ -1,7 +1,7 @@
 import React from 'react';
-import { useStore } from '../../../../context';
+import { useStore } from '../../../../../context';
 import ControlDetails from './controlDetails';
-import withStyle from '../../../../HOC/withStyle';
+import withStyle from '../../../../../HOC/withStyle';
 
 const ControlDetailsContainer = (props) => {
     const { state, dispatch } = useStore();

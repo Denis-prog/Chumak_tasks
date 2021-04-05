@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useStore } from '../../../../context';
+import { useStore } from '../../../../../context';
 import ComandLine from './comandLine';
 import './comandLine.scss';
 
