@@ -6,9 +6,11 @@ const GameOverSplashScreenContainer = () => {
     const { dispatch } = useStore();
 
     return (
-        <>
-            <GameOverSplashScreen dispatch={dispatch} />
-        </>
+        <section className="row">
+            <section className="column">
+                <GameOverSplashScreen dispatch={dispatch} />
+            </section>
+        </section>
     )
 };
 

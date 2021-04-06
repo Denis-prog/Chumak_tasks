@@ -3,7 +3,11 @@ import HistoryList from './HistoryList';
 
 const Main = () => {
     return (
-        <HistoryList />
+        <section className="row">
+            <section className="column">
+                <HistoryList />
+            </section>
+        </section>
     );
 };
 

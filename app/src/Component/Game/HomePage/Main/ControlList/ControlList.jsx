@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import List from '../../../../Common/List';
 import Control from '../../../../Common/Control';
 import { showControldetailsAC } from '../../../../../store/actionCreators';
@@ -15,6 +16,12 @@ const ControlList = (props) => {
                 </Control>)}
         </List>
     );
-}
+};
+
+ControlList.propTypes = {
+    controls: PropTypes.arrayOf(PropTypes.object),
+    dispatch: PropTypes.func,
+    clns: PropTypes.arrayOf(PropTypes.string),
+};
 
 export default ControlList;

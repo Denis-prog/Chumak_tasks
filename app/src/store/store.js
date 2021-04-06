@@ -59,16 +59,13 @@ export function reducer(state, action) {
             let newCountFatigue = state.fatigue + state.fatigueStepUnit;
             newCountFatigue = checkOutBoundsMaxValue(newCountFatigue, maxValueIndicator);
 
-            const x = {
+            return {
                 ...state,
                 health: newCountHealth,
                 thirst: newCountThirst,
                 hunger: newCountHunger,
                 fatigue: newCountFatigue,
             };
-
-            /*     console.log(x); */
-            return x;
 
         }
         case SAVE_WRONG_COMAND: {
@@ -89,13 +86,13 @@ export function reducer(state, action) {
                 return {
                     ...state,
                     currentControlDetails: null,
-                }
+                };
             }
 
             return {
                 ...state,
                 currentControlDetails: payload,
-            }
+            };
         }
         case EAT: {
             const { payload: id } = action;
@@ -117,7 +114,7 @@ export function reducer(state, action) {
                     hunger: newValueHunger,
                     history: [...state.history, { title: `Есть. Еда: ${title}` }],
                 }
-            )
+            );
         }
         case DRINK: {
             const { payload: id } = action;
@@ -139,7 +136,7 @@ export function reducer(state, action) {
                     thirst: newValueThirst,
                     history: [...state.history, { title: `Пить. Напиток: ${title}` }],
                 }
-            )
+            );
         }
         case REST: {
             const { payload: id } = action;
@@ -161,7 +158,7 @@ export function reducer(state, action) {
                     health: newValueHealth,
                     history: [...state.history, { title: `Отдыхать. Вид отдыха: ${title}` }],
                 }
-            )
+            );
         }
         case SPORT: {
             const { payload: id } = action;

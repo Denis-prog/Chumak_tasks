@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './splashScreen.scss';
 
 const SplashScreen = (props) => {
@@ -6,10 +7,13 @@ const SplashScreen = (props) => {
 
     return (
         <div className="splash-screen">
-            <img className="splash-screen__img" src={`./assets/${img}`}  alt="splash screen" />
+            <img className="splash-screen__img" src={`./assets/${img}`} alt="splash screen" />
         </div>
     );
 };
 
-export default SplashScreen;
+SplashScreen.propTypes = {
+    img: PropTypes.string,
+};
 
+export default SplashScreen;

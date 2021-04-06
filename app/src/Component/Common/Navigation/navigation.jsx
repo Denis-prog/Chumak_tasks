@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import List from '../List';
 import Link from '../Link';
 import cn from 'classnames';
@@ -21,5 +22,11 @@ const Navigation = (props) => {
     );
 };
 
+Navigation.propTypes = {
+    elements: PropTypes.arrayOf(PropTypes.object),
+    className: PropTypes.string,
+    clns: PropTypes.arrayOf(PropTypes.string),
+    activeClassName: PropTypes.string,
+};
 
 export default Navigation;

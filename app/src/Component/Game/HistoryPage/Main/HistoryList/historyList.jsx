@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import List from '../../../../Common/List';
 import './historyList.scss';
 
@@ -18,6 +19,11 @@ const HistoryList = (props) => {
             )}
         </List>
     );
+};
+
+HistoryList.propTypes = {
+    elements: PropTypes.arrayOf(PropTypes.object),
+    clns: PropTypes.arrayOf(PropTypes.string),
 };
 
 export default HistoryList;

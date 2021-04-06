@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './page.scss';
 import cn from 'classnames';
 
@@ -26,6 +27,13 @@ const Page = (props) => {
             {Main}
         </div>
     );
+};
+
+Page.propTypes = {
+    header: PropTypes.element,
+    main: PropTypes.element,
+    className: PropTypes.string,
+    clns: PropTypes.arrayOf(PropTypes.string),
 };
 
 export default Page;

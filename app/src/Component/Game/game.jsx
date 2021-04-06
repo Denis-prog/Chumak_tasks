@@ -10,11 +10,9 @@ const Game = () => {
 
     useEffect(() => {
         const timer = setInterval(() => {
-            console.log(123);
             dispatch(counterRepeatAC());
         }, 1000);
         return () => {
-            console.log(12121212);
             clearInterval(timer);
         };
     }, [dispatch]);
@@ -28,4 +26,3 @@ const Game = () => {
 };
 
 export default Game;
-

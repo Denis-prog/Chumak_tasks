@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Navigation from '../Navigation';
 import './mainNavigation.scss';
 
@@ -10,7 +11,10 @@ const MainNavigation = (props) => {
         <Navigation activeClassName={'main-navigation__list-item-link_active'}
             elements={elements} clns={clns} className="main-navigation" />
     )
+};
 
+MainNavigation.propTypes = {
+    clns: PropTypes.arrayOf(PropTypes.string),
 };
 
 export default MainNavigation;

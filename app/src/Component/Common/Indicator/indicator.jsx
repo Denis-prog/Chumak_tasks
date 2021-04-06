@@ -1,9 +1,10 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import cn from 'classnames';
 import './indicator.scss';
 
 const Indicator = (props) => {
-    const { state, className, label, type} = props;
+    const { state, className, label, type } = props;
     const classes = cn('indicator__progress', className)
 
     return (
@@ -14,6 +15,13 @@ const Indicator = (props) => {
             </progress>
         </div>
     )
-}
+};
+
+Indicator.propTypes = {
+    state: PropTypes.object,
+    className: PropTypes.string,
+    label: PropTypes.string,
+    type: PropTypes.string,
+};
 
 export default Indicator;

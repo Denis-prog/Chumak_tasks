@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { transformComand } from '../../../../../helper';
 import { handlerActionCreators, saveWrongComandAC } from '../../../../../store/actionCreators';
 import './comandLine.scss';
@@ -34,11 +35,18 @@ const ComandLine = (props) => {
         <form onSubmit={onSubmit} action="#" className="comand-line">
             <input className="comand-line__field"
                 type="text"
-                placeholder="Insert your command..."
+                placeholder="например, eсть колбаса, заниматься спортом бег"
                 value={value}
                 onChange={({ target: { value } }) => updateValue(value)} />
         </form>
     );
+};
+
+ComandLine.propTypes = {
+    value: PropTypes.string,
+    updateValue: PropTypes.func,
+    сontrolDetails: PropTypes.arrayOf(PropTypes.object),
+    dispatch: PropTypes.func,
 };
 
 export default ComandLine;

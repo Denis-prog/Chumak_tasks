@@ -1,5 +1,6 @@
 import React from 'react';
 import { useStore } from '../../../../../context';
+import wythStyle from '../../../../../HOC/withStyle';
 import PictureIndicatorList from './pictureIndicatorList'
 
 const PictureIndicatorListContainer = (props) => {
@@ -11,4 +12,4 @@ const PictureIndicatorListContainer = (props) => {
     )
 };
 
-export default PictureIndicatorListContainer;
+export default wythStyle(PictureIndicatorListContainer, 'picture-indicator-list__item');
