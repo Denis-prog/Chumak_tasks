@@ -1,0 +1,175 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "email": "ivan@mail.ru",
+      "password": "best",
+      "firstName": "Иван",
+      "lastName": "Волох",
+      "icon": "icon_user_1.svg"
+    },
+    {
+      "id": 2,
+      "email": "pety@mail.ru",
+      "password": "best",
+      "firstName": "Петя",
+      "lastName": "Петухов",
+      "icon": "icon_user_2.svg"
+    },
+    {
+      "id": 3,
+      "email": "igorek@mail.ru",
+      "password": "$2a$10$enE3mteBzPRIBamtHNlgw.gE3CNXoHzCGfWqrwDFaxGsUsT30Z7a.",
+      "firstName": "Игорь",
+      "lastName": "Пупкин",
+      "icon": "icon_user_3.svg"
+    },
+    {
+      "id": 4,
+      "email": "igorek@mail.ru",
+      "password": "$2a$10$enE3mteBzPRIBamtHNlgw.gE3CNXoHzCGfWqrwDFaxGsUsT30Z7a.",
+      "firstName": "Вася",
+      "lastName": "Иванов",
+      "icon": "icon_user_4.svg"
+    },
+    {
+      "id": 5,
+      "email": "igorek@mail.ru",
+      "password": "$2a$10$enE3mteBzPRIBamtHNlgw.gE3CNXoHzCGfWqrwDFaxGsUsT30Z7a.",
+      "firstName": "Дима",
+      "lastName": "Желудев",
+      "icon": "icon_user_4.svg"
+    }
+  ],
+  "tasks": [
+    {
+      "author": 3,
+      "executor": 4,
+      "text": "sdsdd",
+      "priority": "normal",
+      "data": 1618917713162,
+      "status": "completed",
+      "commentators": [],
+      "comments": [],
+      "id": 4
+    },
+    {
+      "author": 3,
+      "executor": 2,
+      "text": "dfdf",
+      "priority": "normal",
+      "data": 1618925375226,
+      "status": "pending",
+      "commentators": [],
+      "comments": [],
+      "id": 6
+    },
+    {
+      "author": 3,
+      "executor": 2,
+      "text": "dfdf",
+      "priority": "normal",
+      "data": 1618925376844,
+      "status": "completed",
+      "commentators": [],
+      "comments": [],
+      "id": 7
+    },
+    {
+      "author": 3,
+      "executor": 2,
+      "text": "dfdf",
+      "priority": "normal",
+      "data": 1618925377558,
+      "status": "pending",
+      "commentators": [],
+      "comments": [],
+      "id": 8
+    },
+    {
+      "author": 3,
+      "executor": 2,
+      "text": "dfdf",
+      "priority": "normal",
+      "data": 1618925378030,
+      "status": "pending",
+      "commentators": [],
+      "comments": [],
+      "id": 9
+    },
+    {
+      "author": 3,
+      "executor": 2,
+      "text": "dfdf",
+      "priority": "normal",
+      "data": 1618925378480,
+      "status": "pending",
+      "commentators": [],
+      "comments": [],
+      "id": 10
+    },
+    {
+      "author": 3,
+      "executor": 2,
+      "text": "dfdf",
+      "priority": "normal",
+      "data": 1618925381011,
+      "status": "pending",
+      "commentators": [],
+      "comments": [],
+      "id": 11
+    },
+    {
+      "author": 3,
+      "executor": 2,
+      "text": "sdsd",
+      "priority": "normal",
+      "data": 1618925515172,
+      "status": "pending",
+      "commentators": [],
+      "comments": [],
+      "id": 12
+    },
+    {
+      "author": 3,
+      "executor": 2,
+      "text": "sdsdd",
+      "priority": "normal",
+      "data": 1618925548068,
+      "status": "canceled",
+      "commentators": [],
+      "comments": [],
+      "id": 13
+    },
+    {
+      "author": 3,
+      "executor": 1,
+      "text": "dfdf",
+      "priority": "minor",
+      "data": 1618925605824,
+      "status": "completed",
+      "commentators": [],
+      "comments": [],
+      "id": 15
+    },
+    {
+      "author": 3,
+      "executor": 2,
+      "text": "fdfdfdf",
+      "priority": "normal",
+      "data": 1618927198330,
+      "status": "pending",
+      "commentators": [],
+      "comments": [],
+      "id": 16
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "task": 1,
+      "author": 1,
+      "text": "lolo"
+    }
+  ]
+}

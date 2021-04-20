@@ -1,0 +1,10 @@
+.status {
+    font-family: Poppins, sans-serif;
+    font-weight: 700;
+    font-size  : 2.57rem;
+    margin: 0;
+
+    &_important {
+        color: #f3455a;
+    }
+}

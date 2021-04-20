@@ -1,0 +1,17 @@
+.app {
+    height         : 100vh;
+    background     : linear-gradient(115.67deg, #EDC1D3 7.14%, #91BDEC 99.42%);
+    display        : flex;
+    align-items    : center;
+    justify-content: center;
+
+    &__pages {
+        width           : 1374px;
+        height          : 825px;
+        margin          : auto;
+        background-color: #fff;
+        padding         : 20px;
+        box-shadow      : 0px 4px 40px #8CA4D8;
+        border-radius   : 30px;
+    }
+}

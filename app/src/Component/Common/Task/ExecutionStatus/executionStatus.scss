@@ -1,0 +1,26 @@
+.execution-status {
+    display: block;
+    font-size: 0.79rem;
+    border-radius: 15px;
+    padding      : 5px 18px;
+
+    &_pending {
+        color     : #f2994a;
+        background: rgba(242, 153, 74, 0.2);
+    }
+
+    &_inprogress {
+        color: #56ccf2;
+        background: rgba(86, 204, 242, 0.2);
+    }
+
+    &_completed {
+        color: #27ae60;
+        background: rgba(39, 174, 96, 0.2);
+    }
+
+    &_canceled {
+        color: #eb5757;
+        background: rgba(235, 87, 87, 0.2);
+    }
+}

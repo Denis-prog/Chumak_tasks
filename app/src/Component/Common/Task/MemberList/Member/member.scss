@@ -1,0 +1,25 @@
+.member {
+    width   : 23px;
+    height  : 23px;
+    position: relative;
+    cursor  : pointer;
+
+    &::after {
+        display         : none;
+        content         : attr(data-member);
+        position        : absolute;
+        top             : 0;
+        transform       : translateY(-110%);
+        left            : 0;
+        padding         : 3px 5px;
+        font-size       : 0.7rem;
+        text-align      : center;
+        color           : #fff;
+        background-color: #000;
+        border-radius   : 10px;
+    }
+
+    &:hover::after {
+        display: block;
+    }
+}

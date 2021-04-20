@@ -1,0 +1,17 @@
+.home-page {
+    &__row {
+        display: flex;
+    }
+
+    &__column {
+
+        &_left {
+            width       : 70%;
+            margin-right: 20px;
+        }
+
+        &_right {
+            width: 30px;
+        }
+    }
+}

@@ -1,0 +1,12 @@
+.tasks-box {
+
+    &__header {
+        display      : flex;
+        align-items  : center;
+        margin-bottom: 40px;
+    }
+
+    &__header-status {
+        margin-right: 30px;
+    }
+}

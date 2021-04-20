@@ -1,0 +1,47 @@
+GET  http://localhost:3000/users HTTP/1.1
+###
+
+GET  http://localhost:3000/tasks HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imlnb3Jla0BtYWlsLnJ1IiwiaWF0IjoxNjE4MzExMDIwLCJleHAiOjE2MTgzMTQ2MjAsInN1YiI6IjEifQ.sWfqKbS8_6RsLOhB9x72QzWavIo6z25PMk7Uw7TAQ5s
+
+###
+
+POST http://localhost:3000/tasks HTTP/1.1
+content-type: application/json
+
+{
+      "author": 1,
+      "executor": 2,
+      "commentators": [],
+      "comments": [],
+      "text": "Поесть",
+      "status": "Pending",
+      "priority": "Normal",
+      "data": 11
+    }
+
+###
+
+
+POST http://localhost:3000/signup HTTP/1.1
+content-type: application/json
+
+{
+   "id": 1,
+      "email": "igorek@mail.ru",
+      "password": "best",
+      "firstName": "Игорь",
+      "lastName": "Пупкин"
+}
+
+###
+
+POST http://localhost:3000/login HTTP/1.1
+content-type: application/json
+
+{
+   "email": "igorek@mail.ru",
+    "password": "best"
+}
+
+###

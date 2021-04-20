@@ -1,0 +1,15 @@
+.tasks-box {
+
+    &__body-item {
+        margin-bottom: 40px;
+    }
+
+    &__body-item-title {
+        margin-bottom: 20px;
+    }
+
+    &__body-item-content {
+        max-height: 250px;
+        overflow-y: auto;
+    }
+}
