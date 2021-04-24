@@ -22,4 +22,10 @@
         border       : none;
         border-radius: 10px;
     }
+
+    &__error {
+        color     : #ff0000;
+        margin-top: 20px;
+        text-align: center;
+    }
 }

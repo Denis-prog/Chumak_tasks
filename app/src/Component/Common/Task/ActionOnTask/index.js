@@ -1,1 +1,1 @@
-export {default} from './ActionOnTaskContainer';
+export {default} from './ActionOnTask';

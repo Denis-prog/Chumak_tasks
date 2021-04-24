@@ -1,9 +1,12 @@
 .home-page {
+
     &__row {
-        display: flex;
+
     }
 
     &__column {
+        display        : flex;
+        justify-content: space-between;
 
         &_left {
             width       : 70%;

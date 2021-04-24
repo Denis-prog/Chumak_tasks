@@ -1,17 +1,14 @@
 class Task {
 
-    constructor({ author, executor, text,
-        priority, commentators = [], comments = [],
-        status = 'pending', date = Date.now() }) {
-
+    constructor({ author, executor, text, subject,
+        priority, status = 'pending' }) {
         this.author = author;
         this.executor = Number(executor);
         this.text = text.trim();
+        this.subject = subject;
         this.priority = !!priority ? priority : 'normal';
-        this.data = date;
+        this.timestamp = Date.now();
         this.status = status;
-        this.commentators = commentators;
-        this.comments = comments;
     }
 }
 

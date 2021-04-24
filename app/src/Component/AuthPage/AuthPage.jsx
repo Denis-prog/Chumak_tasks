@@ -6,7 +6,7 @@ import { Redirect } from 'react-router';
 import { observer } from 'mobx-react';
 
 const AuthPage = observer(() => {
-    console.log(state.isAuth);
+
     if (state.isAuth) {
         return <Redirect to={"/"} />
     }

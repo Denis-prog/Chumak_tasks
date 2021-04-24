@@ -1,0 +1,26 @@
+.task-form {
+    width          : 500px;
+    display        : flex;
+    flex-direction : column;
+    justify-content: space-between;
+
+    &__item {
+        margin-bottom  : 20px;
+        display        : flex;
+        justify-content: space-between;
+        align-items    : center;
+    }
+
+    &__item-content,
+    &__item-subject {
+        padding: 5px;
+    }
+
+    &__item-content {
+        height: 100px;
+    }
+
+    &__item-select {
+        padding: 2px;
+    }
+}

@@ -1,0 +1,22 @@
+.avatar-background {
+    display      : flex;
+    border-radius: 50%;
+
+    &_profile {
+        width     : 50px;
+        height    : 50px;
+        background: linear-gradient(to top, #fd648e 40%, #884cb2);
+    }
+
+    &__inner {
+        display        : flex;
+        justify-content: center;
+        align-items    : center;
+        border         : 2px solid #ffffff;
+        background     : #323136;
+        border-radius  : 50%;
+        margin         : auto;
+        width          : 85%;
+        height         : 85%;
+    }
+}

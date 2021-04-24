@@ -1,0 +1,23 @@
+.profile-actions {
+    position : absolute;
+    display  : none;
+    width    : 100%;
+    padding  : 15px;
+    border   : 1px solid #000000;
+    left     : -10px;
+    transform: translateY(20%);
+
+    &_open {
+        display: block;
+    }
+
+    &__item-btn {
+        width        : 100%;
+        padding      : 10px;
+        margin-bottom: 15px;
+
+        &:last-child {
+            margin-bottom: 0px;
+        }
+    }
+}

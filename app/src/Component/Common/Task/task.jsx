@@ -1,34 +1,33 @@
 import React, { useState } from 'react';
 import { observer } from 'mobx-react';
 import state from '../../../State';
-import ExecutionStatus from './ExecutionStatus';
+import ExecutionStatus from '../ExecutionStatus';
 import PriorityStatus from './PriorityStatus';
 import MemberList from './MemberList';
 import ActionOnTask from './ActionOnTask';
 import Button from '../Button';
+import cn from 'classnames';
 import './task.scss';
 
 const Task = observer((props) => {
-    const { id, text, status, priority } = props.task;
-    const { tasksParticipants } = state;
+    const { id: taskId, text, status, priority, author, executor } = props.task;
+    const { container } = props;
+    const { comments, users } = state;
     const [isOpenActionWindow, toggleActionWindow] = useState(false);
-    const { participants } = tasksParticipants.filter(item => item.taskId === id)[0];
-    const participantsView = participants.slice(0, 4);
-
-    let countParticipantsHidden = participants.length - 4;
-    countParticipantsHidden = countParticipantsHidden > 0 ? countParticipantsHidden : null
-
     const onToggleActionWindow = () => {
         toggleActionWindow((prev) => !prev);
     }
 
+    const taskClasses = cn('task', { 'task_inactive': status === 'completed' || status === 'canceled' });
+
     return (
         <div className="wrapper-task">
-            <div className="task">
-                <span className="task__element task__text">{text}</span>
+            <div className={taskClasses}>
+                <span className="'task__element task__text">{text}</span>
                 <ExecutionStatus status={status} className="task__element" />
                 <PriorityStatus priority={priority} className="task__lement" />
-                <MemberList participants={participantsView} countParticipantsHidden={countParticipantsHidden} className="task__element" />
+                <MemberList taskId={taskId} taskAuthor={author}
+                    taskExecutor={executor} comments={comments} users={users} className="task__element" />
                 <Button className="task__update-btn task__element" onClick={onToggleActionWindow}>
                     <div className="task__update-btn-inner task__update-btn-inner_first"></div>
                     <div className="task__update-btn-inner task__update-btn-inner_middle"></div>
@@ -36,7 +35,12 @@ const Task = observer((props) => {
                 </Button>
             </div>
             {
-                isOpenActionWindow && <ActionOnTask taskId={id} currentStatus={status} isOpen={isOpenActionWindow} onToggleOpen={onToggleActionWindow} />
+                isOpenActionWindow && <ActionOnTask
+                    taskId={taskId}
+                    currentStatus={status}
+                    isOpen={isOpenActionWindow}
+                    onToggleOpen={onToggleActionWindow}
+                    container={container} />
             }
         </div>
     );

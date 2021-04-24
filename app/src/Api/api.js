@@ -1,109 +1,130 @@
-import * as axios from 'axios';
+import axios from 'axios';
+import state from '../State';
 
-const instance = axios.create({
-    baseURL: 'http://localhost:3000/660/',
-});
+import {
+    CommonRequest,
+    TodoService,
+    UserService,
+    CommentService,
+    MessageService,
+    AuthService,
+} from './services';
 
-const instanceAuth = axios.create({
-    baseURL: 'http://localhost:3000/',
-});
+class API {
+    constructor(baseURL, authURL) {
+        this.requestList = [];
+        this.request = axios.create({
+            baseURL,
+        });
+        this.authRequest = axios.create({
+            baseURL: authURL,
+        });
 
+        this.setTokenInterceptors();
+        this.authHandlerIntercertors();
+        this.setPreloadInterceptors();
+        this.setErrorInterceptors();
+        this.setUpdate();
 
-class Api {
-    _getResource = (url, token) => new Promise((res, rej) => {
-        instance.get(url, {
-            headers: {
-                'Authorization': `Bearer ${token}`
-            }
-        })
-            .then(result => res(result.data))
-            .catch(e => rej(e.response.status));
-    })
-
-    _addResource = (url, body, token) => new Promise((res, rej) => {
-        instance.post(url, body, {
-            headers: {
-                'Authorization': `Bearer ${token}`
-            }
-        })
-            .then(result => res(result.data))
-            .catch(e => rej(e.response.status));
-    })
-
-    _updateResource = (url, body, token) => new Promise((res, rej) => {
-        instance.patch(url, body, {
-            headers: {
-                'Authorization': `Bearer ${token}`
-            }
-        })
-            .then(result => res(result.data))
-            .catch(e => rej(e.response.status));
-    })
-
-    _deleteResource = (url, token) => new Promise((res, rej) => {
-        instance.delete(url, {
-            headers: {
-                'Authorization': `Bearer ${token}`
-            }
-        })
-            .then(result => res(result.data))
-            .catch(e => rej(e.response.status));
-    })
-
-    authUser(email, password) {
-        return instanceAuth.post('login', {
-            email,
-            password,
-        })
-            .then(response => {
-                const token = response.data.accessToken;
-
-                return this.getUsers(token)
-                    .then((res) => {
-                        const [currentUser] = res.filter((item => item.email === email));
-                        const id = currentUser.id;
-
-                        return { id, token }
-                    })
-                    .catch(e => { throw e })
-
-            })
-            .catch(e => { throw e.response.statusText })
+        this.commonRequest = new CommonRequest(this.request);
+        this.todo = new TodoService(this.request, this.commonRequest);
+        this.user = new UserService(this.request, this.commonRequest);
+        this.comment = new CommentService(this.request, this.commonRequest);
+        this.message = new MessageService(this.request, this.commonRequest);
+        this.auth = new AuthService(this.authRequest);
     }
 
-    getUsers = (token) => this._getResource('users', token)
-
-    getTasks = (token) => this._getResource('tasks', token)
-    addTask = (body, token) => this._addResource('tasks', body, token)
-    updateTask = (id, body, token) => this._updateResource(`tasks/${id}`, body, token)
-    deleteTask = (id, token) => this._deleteResource(`tasks/${id}`, token)
-
-    getComments = (token) => this._getResource('comments', token)
-    addComment = (body, token) => this._addResource('comments', body, token)
-
-    getAllData = (token) => {
+    getAllData = () => {
         return Promise.all([
-            this.getTasks(token),
-            this.getUsers(token),
-            this.getComments(token),
+            this.todo.getTasks(),
+            this.user.getUsers(),
+            this.comment.getComments(),
+            this.message.getMessages(),
         ])
-            .then((response) => response);
+            .then((response) => response)
+            .catch((e) => { throw e });
     }
 
+    authHandlerIntercertors() {
+        this.authRequest.interceptors.request.use((config) => {
+            state.setPreloader(true);
+            return config;
+        });
+        this.authRequest.interceptors.response.use((response) => {
+            state.setPreloader(false);
+            return response;
+        }, (error) => {
+            state.setPreloader(false);
+            state.setErrorAuthorization(true);
+            return Promise.reject(error);
+        })
+    }
 
-    /*  getUsers() {
-         return instance.get('users')
-             .then(response => { return response.data })
-             .catch(e => { throw e })
-     } */
+    setTokenInterceptors() {
+        this.request.interceptors.request.use((config) => {
+            if (state.isAuth) {
+                const { token } = state.userAuthData;
+                config.headers = {
+                    'Authorization': `Bearer ${token}`,
+                }
+            } else {
+                delete config.headers.Authorization;
+            }
+            return config;
+        });
+    }
 
-    getTasks() {
-        return instance.get('tasks')
-            .then(response => { return response.data })
-            .catch(e => { throw e })
+    setErrorInterceptors() {
+        this.request.interceptors.response.use((response) => {
+            return response;
+        }, (error) => {
+
+            if (401 === error.response.status) {
+                state.clearAuthUserData();
+                throw error;
+            }
+            if (error.url === 'login') {
+                throw error;
+            }
+
+            state.setErrorIndicator(true);
+            return Promise.reject(error);
+        })
+    }
+
+    setPreloadInterceptors() {
+        this.request.interceptors.request.use((config) => {
+            this.requestList.push(config);
+            state.setPreloader(true);
+            return config;
+        });
+        this.request.interceptors.response.use((response) => {
+            this.requestList.pop();
+            state.setPreloader(!!this.requestList.length);
+            return response;
+        }, (error) => {
+            this.requestList = [];
+            state.setPreloader(false);
+            throw error;
+        });
+    }
+
+    setUpdate() {
+        this.request.interceptors.response.use((response) => {
+
+            const method = response.config.method;
+            
+            if (method === 'post' || method === 'delete' || method === 'patch') {
+                return this.getAllData()
+                    .then((response) => response);
+            }
+
+            return response;
+        }, (error) => {
+            throw error;
+        });
     }
 }
 
-const api = new Api();
-
+const api = new API('http://localhost:3000/660/', 'http://localhost:3000/');
 export default api;

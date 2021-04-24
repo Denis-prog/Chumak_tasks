@@ -1,19 +1,21 @@
 import React, { useEffect } from 'react';
 import { observer } from 'mobx-react';
-import Main from './HomePageMain';
+import HomePageHeader from './HomePageHeader';
+import HomePageMain from './HomePageMain';
 import state from '../../State';
 import './homePage.scss';
 
 const HomePage = observer(() => {
-    const { getAllData } = state;
+    const { setAllData } = state;
 
     useEffect(() => {
-        getAllData();
+        setAllData();
     }, []);
 
     return (
         <div className="home-page">
-            <Main />
+            <HomePageHeader />
+            <HomePageMain />
         </div>
     )
 });

@@ -1,20 +1,26 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import state from '../../../State';
 import cn from 'classnames';
 import './authForm.scss';
+import { observer } from 'mobx-react';
 
-const AuthForm = (props) => {
+const AuthForm = observer((props) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const { authUser } = state;
-
+    let { authUser, isErrorAuthorization, setErrorAuthorization } = state;
     const { className } = props;
     const classes = cn('auth-form', className);
 
     const onHandler = (e) => {
         e.preventDefault();
         authUser(email, password);
-    }
+    };
+
+    useEffect(() => {
+        if (isErrorAuthorization) {
+            setErrorAuthorization(false);
+        }
+    }, [email, password]);
 
 
     return (
@@ -28,8 +34,9 @@ const AuthForm = (props) => {
                 <input id="authFieldPassword" type="password" value={password} onChange={({ target: { value } }) => setPassword(value)} />
             </p>
             <button className="auth-form__submit">Войти</button>
-        </form>
+            {isErrorAuthorization && <p className="auth-form__error">ошибка аутентификации</p>}
+        </form >
     );
-};
+});
 
 export default AuthForm;

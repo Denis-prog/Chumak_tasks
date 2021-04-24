@@ -6,15 +6,19 @@ const getUniqCounts = (array) => {
     });
 };
 
-const getAuthUser = () => JSON.parse(localStorage.getItem('token'));
-
+const getAuthUser = () => JSON.parse(localStorage.getItem('user'));
 
 const setAuthUser = (user) => {
-    localStorage.setItem('token', JSON.stringify(user));
+    localStorage.setItem('user', JSON.stringify(user));
 };
+
+const clearAuthUser = () => {
+    localStorage.removeItem('user');
+}
 
 export {
     getUniqCounts,
     getAuthUser,
     setAuthUser,
+    clearAuthUser,
 };

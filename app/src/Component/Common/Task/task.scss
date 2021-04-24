@@ -8,7 +8,6 @@
     display        : flex;
     align-items    : center;
     justify-content: space-between;
-    margin-bottom  : 30px;
     padding-left   : 15px;
 
     &::before,
@@ -32,6 +31,20 @@
         height          : 10px;
         background-image: linear-gradient(133.9deg, rgba(243, 71, 122, 0.2) 0.24%, rgba(136, 76, 178, 0.2) 95.04%);
         transform       : translate(-25%, -50%);
+    }
+
+
+    &_inactive {
+
+        &::before {
+            background-image: none;
+            background-color: #bdbdbd;
+        }
+
+        &::after {
+            background-image: none;
+            background-color: rgba(226, 223, 223, 0.5);
+        }
     }
 
     &__text {

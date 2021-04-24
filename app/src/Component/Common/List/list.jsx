@@ -14,7 +14,7 @@ const List = (props) => {
 
     return (
         <ul className={classes}>
-            {elements.map((item, index) => <ListItem id={item.id} className={clnItem && cn(clnItem, `${clnItem}_${index}`)} key={item.id || index}>{props.children(item)}</ListItem>)}
+            { elements.map((item, index) => <ListItem id={item.id} className={clnItem && cn(clnItem, `${clnItem}_${index}`)} key={item.id || index}>{props.children(item)}</ListItem>)}
         </ul >
     );
 };

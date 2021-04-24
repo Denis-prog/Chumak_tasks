@@ -1,9 +1,9 @@
 import { makeAutoObservable, action } from "mobx"
 import api from '../Api';
 import {
-    getUniqCounts,
-    setAuthUser,
-    getAuthUser,
+    setAuthUser as setAuthUserToLocaleStorage,
+    getAuthUser as getAuthUserFromLocaleStorage,
+    clearAuthUser as clearAuthUserFromLocaleStorage,
 } from '../Helper';
 
 class State {
@@ -13,177 +13,138 @@ class State {
     }
 
     isAuth = false;
-    userData = null;
+    userAuthData = null;
+    isErrorAuthorization = false;
     isFetching = false;
+    isError = false;
+    filter = '';
     tasks = [];
     users = [];
     comments = [];
 
-    getAuthUserData = () => {
-        const user = getAuthUser();
+
+    getSavedUserData = () => {
+        const user = getAuthUserFromLocaleStorage();
 
         if (user) {
             this.isAuth = true;
-            this.userData = user;
+            this.userAuthData = user;
         }
     }
 
-    authUser = (email, password) => {
-        this.isFetching = true;
-        api.authUser(email, password)
-            .then(
-                action('succes', (response) => {
-                    this.userData = response;
-                    setAuthUser(response);
-                    this.isAuth = true;
-                    this.isFetching = false;
-                }))
-            .catch(action('error', e => { console.log(e); }))
+    setAuthUserData = (response) => {
+        setAuthUserToLocaleStorage(response);
+        this.isAuth = true;
+        this.userAuthData = response;
     }
 
-    getAllData = () => {
-        const { token } = this.userData;
-        this.isFetching = true;
-        api.getAllData(token)
+    setErrorAuthorization = (isError) => {
+        this.isErrorAuthorization = isError;
+    }
+
+    setPreloader = (isFetching) => {
+        this.isFetching = isFetching;
+    }
+
+    setErrorIndicator = (isError) => {
+        this.isError = isError;
+    }
+
+    clearAuthUserData = () => {
+        clearAuthUserFromLocaleStorage();
+        this.isAuth = false;
+        this.userAuthData = null;
+    }
+
+    setFilter = (searchText) => {
+        this.filter = searchText.trim();
+    }
+
+    authUser = (email, password) => {
+        api.auth.authUser(email, password)
             .then(
-                action('succes', ([tasks, users, comments]) => {
-                    this.tasks = tasks;
-                    this.users = users;
-                    this.comments = comments;
-                    this.isFetching = false;
+                action('succes', (response) => {
+                    this.setAuthUserData(response)
                 }))
-            .catch(
-                action('error', (e) => {
-                    this.isFetching = false;
-                    if (e === 401) {
-                        this.isAuth = false;
-                        this.userData = null;
-                    }
-                    console.log(e);
+            .catch(action('error', e => { console.dir(e); }))
+    }
+
+    logOutUser = () => {
+        this.isAuth = false;
+        this.userAuthData = null;
+        clearAuthUserFromLocaleStorage();
+    }
+
+    setAllData = () => {
+        api.getAllData()
+            .then(
+                action('succes', (response) => {
+                    this.updateAllData(response);
                 })
-            )
+            );
+    }
+
+    updateAllData([tasks, users, comments, messages]) {
+        this.tasks = tasks;
+        this.users = users;
+        this.comments = comments;
+        this.messages = messages;
     }
 
     addNewTask = (task) => {
-        const { token } = this.userData;
-        this.isFetching = true;
-        api.addTask(task, token)
+        api.todo.addTask(task)
             .then(
-                action('succes', (task) => {
-                    console.log(task);
-                    this.tasks.push(task);
-                    this.isFetching = false;
-                })
-            )
-            .catch(
-                action('error', (e) => {
-                    this.isFetching = false;
-                    if (e === 401) {
-                        this.isAuth = false;
-                        this.userData = null;
-                    }
-                    console.log(e);
+                action('succes', (response) => {
+                    this.updateAllData(response);
                 })
             );
     }
 
     deleteTask = (id) => {
-        const { token } = this.userData;
-        this.isFetching = true;
-        api.deleteTask(id, token)
+        api.todo.deleteTask(id)
             .then(
-                action('succes', () => {
-                    this.tasks = this.tasks.filter((task) => task.id !== id);
-                    this.isFetching = false;
+                action('succes', (response) => {
+                    this.updateAllData(response);
                 })
-            )
-            .catch(
-                action('error', (e) => {
-                    this.isFetching = false;
-                    if (e === 401) {
-                        this.isAuth = false;
-                        this.userData = null;
-                    }
-                    console.log(e);
-                })
-            )
+            );
     }
 
     updateTask = (id, body) => {
-        const { token } = this.userData;
-        this.isFetching = true;
-        api.updateTask(id, body, token)
+        api.todo.updateTask(id, body)
             .then(
                 action('succes', (response) => {
-                    this.tasks = this.tasks.map((item) => {
-                        if (item.id === id) {
-                            return response;
-                        }
-
-                        return item;
-                    })
-                    this.isFetching = false;
+                    this.updateAllData(response);
                 })
-            )
-            .catch(
-                action('error', (e) => {
-                    this.isFetching = false;
-                    if (e === 401) {
-                        this.isAuth = false;
-                        this.userData = null;
-                    }
-                    console.log(e);
-                })
-            )
+            );
     }
 
     addNewComment = (comment) => {
-        const { token } = this.userData;
-        this.isFetching = true;
-        api.addComment(comment, token)
+        api.comment.addComment(comment)
             .then(
-                action('succes', (comment) => {
-                    this.comments.push(comment);
-                    this.isFetching = false;
+                action('succes', (response) => {
+                    this.updateAllData(response);
                 })
-            )
-            .catch(
-                action('error', (e) => {
-                    this.isFetching = false;
-                    if (e === 401) {
-                        this.isAuth = false;
-                        this.userData = null;
-                    }
-                    console.log(e);
-                })
-            )
+            );
     }
 
-    get tasksParticipants() {
-        const tasksParticipants = [];
+    get authUserId() {
+        return this.userAuthData.id;
+    }
 
-        this.tasks.forEach((item) => {
-            const { id, author, executor, commentators } = item;
-            let participants = [author, executor, ...commentators];
+    get currentUserInfo() {
+        return this.users.find((user) => user.id === this.authUserId)
+    }
 
-            participants = getUniqCounts(participants);
+    get currentTasks() {
+        if (!!this.filter) {
+            return this.tasks.filter((task) => task.text.indexOf(this.filter) !== -1);
+        }
 
-            const participantsItem = [];
-
-            participants.forEach((item) => {
-                const { firstName, lastName, icon } = this.users.find(user => user.id === item);
-
-                participantsItem.push({ firstName, lastName, icon });
-            });
-
-            tasksParticipants.push({ taskId: id, participants: participantsItem });
-        });
-
-        return tasksParticipants;
+        return this.tasks;
     }
 
     get activeTasks() {
-        return this.tasks.filter(item => item.status !== 'completed' && item.status !== 'canceled');
+        return this.currentTasks.filter(item => item.status !== 'completed' && item.status !== 'canceled');
     }
 
     get countActiveTasks() {
@@ -191,7 +152,7 @@ class State {
     }
 
     get inActiveTasks() {
-        return this.tasks.filter(item => item.status === 'completed' || item.status === 'canceled');
+        return this.currentTasks.filter(item => item.status === 'completed' || item.status === 'canceled');
     }
 }
 

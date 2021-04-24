@@ -3,6 +3,7 @@ class Comment {
         this.taskId = taskId;
         this.author = author;
         this.text = text;
+        this.date=Date.now();
     }
 };
 

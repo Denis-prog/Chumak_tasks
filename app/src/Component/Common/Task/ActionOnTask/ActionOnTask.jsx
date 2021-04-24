@@ -1,21 +1,21 @@
 import { observer } from 'mobx-react';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import Button from '../../Button';
 import Select from '../../Select';
 import state from '../../../../State';
 import {
     Comment
-} from '../../../../entity';
+} from '../../../../Entity';
 import './actionOnTask.scss';
 
 const ActionOnTask = observer((props) => {
-    const { taskId, currentStatus } = props;
+    const { taskId, currentStatus, isOpen, onToggleOpen, container } = props;
     const [status, setStatus] = useState(currentStatus);
     const [commentText, setCommentText] = useState('');
-
+    const actionWindow = useRef(null);
     const statuses = [
         { value: 'pending', label: 'Pending' },
-        { value: 'inProgress', label: 'In Progress' },
+        { value: 'inprogress', label: 'In Progress' },
         { value: 'completed', label: 'Completed' },
         { value: 'canceled', label: 'Canceled' },
     ];
@@ -27,13 +27,32 @@ const ActionOnTask = observer((props) => {
             }
 
             updateTask(taskId, { status: newStatus });
+            onToggleOpen();
         };
 
         changeStatusTask(status);
 
     }, [status])
 
-    const { userData: { id: userId }, deleteTask, updateTask, addNewComment } = state;
+    useEffect(() => {
+        function scrollToActionWindow() {
+            if (isOpen) {
+                const itemWindow = actionWindow.current.offsetTop + actionWindow.current.offsetHeight;
+                const body = container.current.offsetTop + container.current.offsetHeight;
+                const diff = body - itemWindow;
+
+                if (diff < 0) {
+                    actionWindow.current.scrollIntoView(false)
+                }
+            }
+        };
+
+        scrollToActionWindow();
+
+    }, [isOpen])
+
+
+    const { authUserId: userId, deleteTask, updateTask, addNewComment } = state;
 
     const deleteTaskHandler = () => {
         deleteTask(taskId);
@@ -42,11 +61,12 @@ const ActionOnTask = observer((props) => {
     const addNewCommentsHandler = () => {
         const comment = new Comment(taskId, userId, commentText);
         addNewComment(comment);
+        onToggleOpen();
     };
 
     return (
-        <div className="task-action">
-            <div className="task-action__body">
+        <div className="task-action" ref={actionWindow}>
+            <div className="task-action__top">
                 <Button className="task-action__item task-action__item-delete" onClick={deleteTaskHandler}>
                     Удалить
                 </Button>
