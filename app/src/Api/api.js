@@ -1,5 +1,6 @@
 import axios from 'axios';
 import state from '../State';
+import Message from '../Entity/Message';
 
 import {
     CommonRequest,
@@ -21,10 +22,12 @@ class API {
         });
 
         this.setTokenInterceptors();
-        this.authHandlerIntercertors();
         this.setPreloadInterceptors();
+        this.authHandlerIntercertors();
         this.setErrorInterceptors();
-        this.setUpdate();
+        this.setMessage();
+        this.setAllDataInterceptors();
+
 
         this.commonRequest = new CommonRequest(this.request);
         this.todo = new TodoService(this.request, this.commonRequest);
@@ -109,14 +112,55 @@ class API {
         });
     }
 
-    setUpdate() {
-        this.request.interceptors.response.use((response) => {
+    historyHandler = (response) => {
 
-            const method = response.config.method;
+        const [source] = response.config.url.split('/');
+        const action = response.config.method;
+        console.log('action: ', action);
+        const entity = response.data;
+
+        switch (source) {
+            case 'comments': {
+                const task = state.tasks.find((item) => item.id === entity.taskId);
+                return new Message(source, action, state.authUserId, entity.text,
+                    task.subject, task.author);
+            }
+            case 'tasks': {
+
+                return new Message(source, action, state.authUserId, entity.text,
+                    entity.subject, entity.author);
+            }
             
+            default: throw new Error('нет совпадений');
+        }
+    }
+
+    setAllDataInterceptors() {
+        this.request.interceptors.response.use((response) => {
+            const method = response.config.method;
+
             if (method === 'post' || method === 'delete' || method === 'patch') {
                 return this.getAllData()
                     .then((response) => response);
+            }
+
+            return response;
+        }, (error) => {
+            throw error;
+        });
+    }
+
+    setMessage() {
+        this.request.interceptors.response.use(async (response) => {
+
+            const method = response.config.method;
+
+            if (method === 'post' || method === 'delete' || method === 'patch') {
+
+                if (response.config.url !== 'messages') {
+
+                    await this.message.addMessage(this.historyHandler(response))
+                }
             }
 
             return response;

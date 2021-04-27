@@ -4,7 +4,7 @@ import './avatarBackground.scss';
 
 const CircleBorder = (props) => {
     const { className, content, children } = props;
-    const classes = cn('avatar-background', `avatar-background_${content}`, content, className);
+    const classes = cn('avatar-background', `avatar-background_${content}`, className);
 
     return (
         <div className={classes}>

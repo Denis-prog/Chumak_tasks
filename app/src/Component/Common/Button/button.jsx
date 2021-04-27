@@ -4,7 +4,8 @@ import cn from 'classnames';
 import './button.scss';
 
 const Button = (props) => {
-    const { onClick, className, ariaLabel } = props;
+    const { onClick, className, ariaLabel, disabled } = props;
+    
     const classes = cn('button', className);
 
     const handler = (e) => {
@@ -12,7 +13,7 @@ const Button = (props) => {
     }
 
     return (
-        <button className={classes} aria-label={ariaLabel} onClick={handler}>{props.children}</button>
+        <button disabled={disabled} className={classes} aria-label={ariaLabel} onClick={handler}>{props.children}</button>
     );
 };
 

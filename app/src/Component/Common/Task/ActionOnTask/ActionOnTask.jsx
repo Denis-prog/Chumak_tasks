@@ -6,6 +6,10 @@ import state from '../../../../State';
 import {
     Comment
 } from '../../../../Entity';
+import {
+    requiredField,
+    useValidation,
+} from '../../../../validation';
 import './actionOnTask.scss';
 
 const ActionOnTask = observer((props) => {
@@ -58,6 +62,12 @@ const ActionOnTask = observer((props) => {
         deleteTask(taskId);
     };
 
+    const validation = useValidation({commentText}, {
+        commentText: [
+            requiredField,
+        ]
+    })
+
     const addNewCommentsHandler = () => {
         const comment = new Comment(taskId, userId, commentText);
         addNewComment(comment);
@@ -79,7 +89,7 @@ const ActionOnTask = observer((props) => {
             </div>
             <div className="task-action__item task-action__item-add-comment">
                 <textarea className="task-action__item-add-comment-field" value={commentText} onChange={({ target: { value } }) => setCommentText(value)} />
-                <Button className="task-action__item-add-comment-btn" onClick={addNewCommentsHandler}>
+                <Button disabled={!!validation.validate(commentText)} className="task-action__item-add-comment-btn" onClick={addNewCommentsHandler}>
                     Комментировать
                 </Button>
             </div>

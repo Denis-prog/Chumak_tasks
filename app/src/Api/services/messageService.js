@@ -5,9 +5,9 @@ class MessageService {
         this.commonRequest = commonRequest;
     }
 
-    getMessages = () => this.commonRequest.getResource('messages')
+    getMessages = () => this.commonRequest.getResource('messages?_sort=timestamp&_order=desc')
 
-    addMessages = (body) => this.commonRequest.addResource('messages', body)
+    addMessage = (body) => this.commonRequest.addResource('messages', body)
 };
 
 export default MessageService;

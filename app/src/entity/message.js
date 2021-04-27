@@ -1,9 +1,14 @@
 class Message {
 
-    constructor(source, sourceId) {
+    constructor(source, action, author, text, subject, sourceAuthor) {
         this.source = source;
-        this.source = sourceId;
-        this.timestamp = Date.now()
+        this.action = action;
+        this.text = text;
+        this.author = author;
+        this.subject = subject;
+        this.sourceAuthor = sourceAuthor;
+        this.timestamp = Date.now();
+
     }
 };
 

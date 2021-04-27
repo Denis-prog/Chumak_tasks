@@ -1,5 +1,5 @@
-import Task from './task';
-import Comment from './comment';
+import Task from './Task';
+import Comment from './Comment';
 
 export {
     Task,

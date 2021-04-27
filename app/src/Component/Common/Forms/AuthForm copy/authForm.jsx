@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import state from '../../../State';
+import state from '../../../../State';
+
 import cn from 'classnames';
 import './authForm.scss';
 import { observer } from 'mobx-react';
@@ -20,6 +21,7 @@ const AuthForm = observer((props) => {
         if (isErrorAuthorization) {
             setErrorAuthorization(false);
         }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [email, password]);
 
 

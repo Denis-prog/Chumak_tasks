@@ -5,7 +5,7 @@ import Button from '../Button';
 import './modalWindow.scss';
 
 const Modal = (props) => {
-    const { title, isOpen, onCancel, onSubmit, buttonLabel, children } = props;
+    const { title, isOpen, onCancel, children } = props;
 
     return (
         <>
@@ -21,12 +21,7 @@ const Modal = (props) => {
                             </div>
                             <div className="modal-window__body">
                                 {children}
-                            </div>
-                            <div className="modal-window__footer">
-                                <Button onClick={onSubmit}
-                                    className="modal-window__footer-btn-submit">{buttonLabel}
-                                </Button>
-                            </div>
+                            </div>   
                         </div>
                     </Overlay>
                 </Portal>}

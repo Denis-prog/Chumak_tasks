@@ -21,6 +21,7 @@ class State {
     tasks = [];
     users = [];
     comments = [];
+    messages = [];
 
 
     getSavedUserData = () => {
@@ -54,19 +55,22 @@ class State {
         clearAuthUserFromLocaleStorage();
         this.isAuth = false;
         this.userAuthData = null;
+        this.task = [];
+        this.user = [];
+        this.comments = [];
+        this.messages = [];
     }
 
     setFilter = (searchText) => {
         this.filter = searchText.trim();
     }
 
-    authUser = (email, password) => {
+    authUser = ({ email, password }) => {
         api.auth.authUser(email, password)
             .then(
                 action('succes', (response) => {
                     this.setAuthUserData(response)
                 }))
-            .catch(action('error', e => { console.dir(e); }))
     }
 
     logOutUser = () => {
@@ -119,13 +123,17 @@ class State {
     }
 
     addNewComment = (comment) => {
+
         api.comment.addComment(comment)
             .then(
                 action('succes', (response) => {
+                    console.log('444444444444444: ', response);
                     this.updateAllData(response);
                 })
-            );
+            )
     }
+
+
 
     get authUserId() {
         return this.userAuthData.id;

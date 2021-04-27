@@ -4,6 +4,7 @@ import Modal from '../../../../../Common/Modal';
 import TaskAddForm from '../../../../../Common/Forms/TaskAddForm';
 import { Task } from '../../../../../../Entity'
 import state from '../../../../../../State';
+
 import './addNewTask.scss';
 import { observer } from 'mobx-react';
 
@@ -53,14 +54,12 @@ const AddNewTask = observer(() => {
                 Add New
             </Button>
             < Modal title="Добавить задачу"
-                buttonLabel="Добавить"
                 isOpen={isOpenModal}
-                onCancel={onToggleVisibilityModal}
-                onSubmit={addNewTaskHandler}>
+                onCancel={onToggleVisibilityModal}>
                 <TaskAddForm users={users}
                     formData={formData}
                     onUpdateFormData={onUpdateFormData}
-                />
+                    onSubmit={addNewTaskHandler} />
             </Modal >
         </>
     );

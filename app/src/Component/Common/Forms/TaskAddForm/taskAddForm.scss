@@ -11,6 +11,10 @@
         align-items    : center;
     }
 
+    &__item-label-limitation {
+        font-size: 0.6rem;
+    }
+
     &__item-content,
     &__item-subject {
         padding: 5px;
@@ -22,5 +26,16 @@
 
     &__item-select {
         padding: 2px;
+    }
+
+    &__btn-submit {
+        align-self   : center;
+        font-family  : Poppins;
+        font-size    : 1.2rem;
+        margin-top   : 50px;
+        padding      : 10px 60px;
+        border-radius: 10px;
+        background   : #884cb2;
+        color        : #fff;
     }
 }
