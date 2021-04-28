@@ -1,15 +1,14 @@
 .select-field {
-    padding: 5px;
+  padding: 5px;
 }
 
 .select-label {
+  &_required {
+    position: relative;
 
-    &_required {
-        position: relative;
-
-        &:after {
-            content: ' *';
-            color: #ff0000;
-        }
+    &:after {
+      content: " *";
+      color: #ff0000;
     }
+  }
 }

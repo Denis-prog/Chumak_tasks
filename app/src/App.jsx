@@ -7,8 +7,8 @@ import {
 import { observer } from 'mobx-react';
 import ErrorIndicator from './Component/Common/ErrorIndicator';
 import Preloader from './Component/Common/Preloader';
-import HomePage from './Component/HomePage';
-import AuthPage from './Component/AuthPage';
+import HomePage from './Component/Page/HomePage';
+import AuthPage from './Component/Page/AuthPage';
 import state from './State';
 import './app.scss';
 

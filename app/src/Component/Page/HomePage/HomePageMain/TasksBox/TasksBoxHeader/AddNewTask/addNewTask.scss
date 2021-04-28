@@ -1,0 +1,17 @@
+@import "../../../../../../../styles/mixins";
+@import "../../../../../../../styles/templates";
+
+.add-new-task {
+  padding: 10px 30px;
+  @extend %addButton;
+
+  &::before {
+    content: "";
+    display: block;
+    background-image: url("./assets/plusAdd.svg");
+    background-repeat: no-repeat;
+    width: 18px;
+    height: 18px;
+    margin-right: 5px;
+  }
+}

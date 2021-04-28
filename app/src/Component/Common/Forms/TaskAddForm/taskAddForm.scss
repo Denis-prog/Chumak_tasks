@@ -1,41 +1,42 @@
+@import "../../../../styles/mixins";
+@import "../../../../styles/templates";
+
 .task-form {
-    width          : 500px;
-    display        : flex;
-    flex-direction : column;
-    justify-content: space-between;
+  @include flexContainerProperties(
+    $direction: column,
+    $mainAxisAlignment: space-between
+  );
+  width: 500px;
 
-    &__item {
-        margin-bottom  : 20px;
-        display        : flex;
-        justify-content: space-between;
-        align-items    : center;
-    }
+  &__item {
+    @include flexContainerProperties(
+      $crossAxisAligment: center,
+      $mainAxisAlignment: space-between
+    );
+    margin-bottom: 20px;
+  }
 
-    &__item-label-limitation {
-        font-size: 0.6rem;
-    }
+  &__item-label-limitation {
+    font-size: 0.6rem;
+  }
 
-    &__item-content,
-    &__item-subject {
-        padding: 5px;
-    }
+  &__item-content,
+  &__item-subject {
+    padding: 5px;
+  }
 
-    &__item-content {
-        height: 100px;
-    }
+  &__item-content {
+    height: 100px;
+  }
 
-    &__item-select {
-        padding: 2px;
-    }
+  &__item-select {
+    padding: 2px;
+  }
 
-    &__btn-submit {
-        align-self   : center;
-        font-family  : Poppins;
-        font-size    : 1.2rem;
-        margin-top   : 50px;
-        padding      : 10px 60px;
-        border-radius: 10px;
-        background   : #884cb2;
-        color        : #fff;
-    }
+  &__btn-submit {
+    @extend %addButton;
+    align-self: center;
+    margin-top: 50px;
+    padding: 20px 60px;
+  }
 }

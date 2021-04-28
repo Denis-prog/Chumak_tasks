@@ -1,8 +1,11 @@
+@import "../../../styles/mixins";
+
 .round-icon {
-    width          : 23px;
-    height         : 23px;
-    border-radius  : 12px;
-    display        : flex;
-    align-items    : center;
-    justify-content: center;
+  @include flexContainerProperties(
+    $crossAxisAligment: center,
+    $mainAxisAlignmen: center
+  );
+  width: 23px;
+  height: 23px;
+  border-radius: 12px;
 }

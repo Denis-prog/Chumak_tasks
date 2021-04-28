@@ -1,0 +1,14 @@
+%addButton {
+  @include flexContainerProperties($crossAxisAligment: center);
+  @include fontProperties(
+    $family: (
+      Poppins,
+      sans-serif,
+    ),
+    $size: 0.85rem,
+    $color: #fff
+  );
+  border: none;
+  border-radius: 10px;
+  background: #884cb2;
+}

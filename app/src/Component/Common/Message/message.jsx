@@ -1,6 +1,6 @@
 import React from 'react';
 import Avatar from '../Avatar';
-import {convertTimeToString} from '../../../Helper';
+import { convertTimeToString } from '../../../Helper';
 import cn from 'classnames';
 import './message.scss';
 
@@ -31,7 +31,7 @@ const Message = (props) => {
         'message__content_own': isMessageFromMe,
     });
 
-    const handler = () => {
+    const createMessage = () => {
 
         const createSubtitle = () => {
             switch (source) {
@@ -115,14 +115,14 @@ const Message = (props) => {
         );
     }
 
-    const timeDiff = Date.now()-timestamp;
+    const timeDiff = Date.now() - timestamp;
     const isMessageOld = (timeDiff) / 1000 > 86400; // 1сутки
     const isMessageNew = (timeDiff) / 1000 < 60;  //менее минуты
     const timePassed = convertTimeToString(timeDiff);
 
     return (
         <>
-            { handler()}
+            { createMessage()}
         </>
     );
 

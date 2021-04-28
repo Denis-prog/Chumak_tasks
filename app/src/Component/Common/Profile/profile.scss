@@ -1,18 +1,19 @@
+@import "../../../styles/mixins";
+
 .profile {
-    position: relative;
+  position: relative;
 
-    &__info {
-        display      : flex;
-        align-items  : center;
-        margin-bottom: 10px;
+  &__info {
+    @include flexContainerProperties($crossAxisAligment: center);
+    margin-bottom: 10px;
 
-        *:not(:last-child) {
-            margin-right: 15px;
-        }
+    *:not(:last-child) {
+      margin-right: 15px;
     }
+  }
 
-    &__info-open-action-img {
-        width : 15px;
-        height: 15px;
-    }
+  &__info-open-action-img {
+    width: 15px;
+    height: 15px;
+  }
 }

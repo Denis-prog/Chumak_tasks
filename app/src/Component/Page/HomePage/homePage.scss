@@ -1,0 +1,24 @@
+@import "../../../styles/mixins";
+
+.home-page {
+  &__row {
+    @include flexContainerProperties;
+  }
+
+  &__column {
+    @include flexContainerProperties($mainAxisAlignment: space-between);
+    width: 100%;
+
+    &_left {
+      width: 75%;
+      margin-right: 70px;
+    }
+
+    &_right {
+      width: 25%;
+      height: 100%;
+      overflow-y: scroll;
+      padding-right: 10px;
+    }
+  }
+}

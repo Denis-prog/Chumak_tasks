@@ -1,31 +1,29 @@
+@import "../../../../styles/mixins";
+@import "../../../../styles/templates";
+
 .auth-form {
-    box-shadow    : 0px 4px 40px #8ca4d8;
-    padding       : 20px;
-    display       : flex;
-    flex-direction: column;
+  @include flexContainerProperties($direction: column);
+  box-shadow: 0px 4px 40px #8ca4d8;
+  padding: 20px;
 
-    &__item {
-        display        : flex;
-        justify-content: space-between;
-        margin-bottom  : 20px;
-    }
+  &__item {
+    @include flexContainerProperties($mainAxisAlignment: space-between);
+    margin-bottom: 20px;
+  }
 
-    &__item-label {
-        margin-right: 10px;
-    }
+  &__item-label {
+    margin-right: 10px;
+  }
 
-    &__submit {
-        align-self   : center;
-        padding      : 10px 30px;
-        background   : #884cb2;
-        color        : #fff;
-        border       : none;
-        border-radius: 10px;
-    }
+  &__submit {
+    @extend %addButton;
+    align-self: center;
+    padding: 10px 30px;
+  }
 
-    &__error {
-        color     : #ff0000;
-        margin-top: 20px;
-        text-align: center;
-    }
+  &__error {
+    color: #ff0000;
+    margin-top: 20px;
+    text-align: center;
+  }
 }

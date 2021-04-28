@@ -1,24 +1,25 @@
+@import "../../../../styles/variables";
+@import "../../../../styles/mixins";
+
 .search-form {
-    display    : flex;
-    align-items: center;
+  @include flexContainerProperties($crossAxisAligment: center);
 
-    &__item-field {
-        width  : 185px;
-        padding: 5px;
-        border : none;
+  &__item-field {
+    width: 212px;
+    padding: 5px;
+    border: none;
 
-        &::placeholder {
-            font-size: 0.85rem;
-            color    : #90a0b7;
-        }
+    &::placeholder {
+      @include fontProperties($size: 0.8rem, $color: #90a0b7, $lSpasing: 0.5px);
     }
+  }
 
-    &::before {
-        content         : '';
-        margin-right    : 5px;
-        width           : 14px;
-        height          : 14px;
-        display         : block;
-        background-image: url('./assets/searchIcon.svg');
-    }
+  &::before {
+    content: "";
+    margin-right: 5px;
+    width: 14px;
+    height: 14px;
+    display: block;
+    background-image: url("./assets/searchIcon.svg");
+  }
 }

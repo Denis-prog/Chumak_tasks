@@ -1,16 +1,12 @@
+@import "../../../styles/variables";
+@import "../../../styles/mixins";
+
 .tasks-list {
+  &__item {
+    padding: 20px 0;
 
-    &__label {
-        font-family  : Popins, sans-serif;
-        font-size    : 1.29rem;
-        margin-bottom: 30px;
+    &:not(:last-child) {
+      border-bottom: 0.5px solid #e0e0e0;
     }
-
-    &__item {
-        padding     : 20px 0;
-
-        &:not(:last-child) {
-            border-bottom: 0.5px solid #e0e0e0;
-        }
-    }
+  }
 }

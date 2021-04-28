@@ -1,0 +1,12 @@
+@import "../../../../../../styles/mixins";
+
+.tasks-box {
+  &__header {
+    @include flexContainerProperties($crossAxisAligment: center);
+    margin-bottom: 40px;
+  }
+
+  &__header-status {
+    margin-right: 30px;
+  }
+}

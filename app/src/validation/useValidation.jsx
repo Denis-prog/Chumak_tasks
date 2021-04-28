@@ -1,5 +1,3 @@
-import React from 'react';
-
 export const minLengthValue = (min) => (value) => {
 
     let isErrorValidate = false;

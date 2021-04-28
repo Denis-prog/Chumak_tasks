@@ -1,0 +1,37 @@
+@import "../../../../../../styles/mixins";
+
+.tasks-box {
+  &__body-item {
+    margin-bottom: 40px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__body-item-title {
+    margin-bottom: 20px;
+
+    &_inactive {
+      @include flexContainerProperties($crossAxisAligment: center);
+    }
+  }
+
+  &__body-item-title-icon {
+    margin-left: 10px;
+    padding: 3px 10px;
+  }
+
+  &__body-item-content {
+    height: 220px;
+    overflow-y: scroll;
+
+    &_transparent {
+      opacity: 0.4;
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+}

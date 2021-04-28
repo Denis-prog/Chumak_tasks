@@ -1,0 +1,17 @@
+@import "../../../../../../../styles/variables";
+@import "../../../../../../../styles/mixins";
+
+.status {
+  @include fontProperties(
+    $family: (
+      Poppins,
+      sans-serif,
+    ),
+    $weight: 700,
+    $size: 2.57rem
+  );
+
+  &_important {
+    color: #f3455a;
+  }
+}

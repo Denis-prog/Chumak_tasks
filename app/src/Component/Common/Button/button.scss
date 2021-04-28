@@ -1,13 +1,13 @@
 .button {
-    cursor: pointer;
-    border: none;
+  cursor: pointer;
+  border: none;
 
-    &:active {
-        box-shadow: 0px 0px 5px #666666;
-    }
+  &:active {
+    box-shadow: 0px 0px 5px #666666;
+  }
 
-    &:disabled {
-        background-color: #a3a0a0;
-        opacity         : 0.8;
-    }
+  &:disabled {
+    background-color: #a3a0a0;
+    opacity: 0.5;
+  }
 }

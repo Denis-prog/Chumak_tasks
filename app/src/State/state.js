@@ -14,7 +14,7 @@ class State {
 
     isAuth = false;
     userAuthData = null;
-    isErrorAuthorization = false;
+    isErrorAuth = false;
     isFetching = false;
     isError = false;
     filter = '';
@@ -39,8 +39,8 @@ class State {
         this.userAuthData = response;
     }
 
-    setErrorAuthorization = (isError) => {
-        this.isErrorAuthorization = isError;
+    setErrorAuth = (isError) => {
+        this.isErrorAuth = isError;
     }
 
     setPreloader = (isFetching) => {

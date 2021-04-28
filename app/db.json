@@ -27,46 +27,6 @@
   ],
   "tasks": [
     {
-      "author": 5,
-      "executor": 3,
-      "text": "cvcv",
-      "subject": "cvcvc",
-      "priority": "normal",
-      "timestamp": 1619535386876,
-      "status": "canceled",
-      "id": 1
-    },
-    {
-      "author": 4,
-      "executor": 4,
-      "text": "cvcc",
-      "subject": "v",
-      "priority": "normal",
-      "timestamp": 1619536398362,
-      "status": "completed",
-      "id": 2
-    },
-    {
-      "author": 4,
-      "executor": 4,
-      "text": "cvcv",
-      "subject": "cvcv",
-      "priority": "normal",
-      "timestamp": 1619536412278,
-      "status": "completed",
-      "id": 3
-    },
-    {
-      "author": 4,
-      "executor": 4,
-      "text": "dff",
-      "subject": "dfd",
-      "priority": "normal",
-      "timestamp": 1619536451534,
-      "status": "canceled",
-      "id": 4
-    },
-    {
       "author": 4,
       "executor": 3,
       "text": "dfdf",
@@ -135,30 +95,19 @@
       "timestamp": 1619565876619,
       "status": "pending",
       "id": 11
+    },
+    {
+      "author": 3,
+      "executor": 3,
+      "text": "dfdfdf",
+      "subject": "dfdffdfdf",
+      "priority": "critical",
+      "timestamp": 1619640712636,
+      "status": "pending",
+      "id": 12
     }
   ],
   "comments": [
-    {
-      "taskId": 1,
-      "author": 5,
-      "text": "cvcvcv",
-      "timestamp": 1619535425182,
-      "id": 2
-    },
-    {
-      "taskId": 1,
-      "author": 4,
-      "text": "sdsds",
-      "timestamp": 1619535491548,
-      "id": 3
-    },
-    {
-      "taskId": 1,
-      "author": 4,
-      "text": "vcvcvc",
-      "timestamp": 1619536384215,
-      "id": 4
-    },
     {
       "taskId": 8,
       "author": 5,
@@ -485,6 +434,56 @@
       "sourceAuthor": 3,
       "timestamp": 1619565877687,
       "id": 70
+    },
+    {
+      "source": "tasks",
+      "action": "delete",
+      "text": "dff",
+      "author": 3,
+      "subject": "dfd",
+      "sourceAuthor": 4,
+      "timestamp": 1619627016360,
+      "id": 71
+    },
+    {
+      "source": "tasks",
+      "action": "delete",
+      "text": "cvcv",
+      "author": 3,
+      "subject": "cvcv",
+      "sourceAuthor": 4,
+      "timestamp": 1619627022680,
+      "id": 72
+    },
+    {
+      "source": "tasks",
+      "action": "delete",
+      "text": "cvcc",
+      "author": 3,
+      "subject": "v",
+      "sourceAuthor": 4,
+      "timestamp": 1619627029376,
+      "id": 73
+    },
+    {
+      "source": "tasks",
+      "action": "delete",
+      "text": "cvcv",
+      "author": 3,
+      "subject": "cvcvc",
+      "sourceAuthor": 5,
+      "timestamp": 1619627034980,
+      "id": 74
+    },
+    {
+      "source": "tasks",
+      "action": "post",
+      "text": "dfdfdf",
+      "author": 3,
+      "subject": "dfdffdfdf",
+      "sourceAuthor": 3,
+      "timestamp": 1619640713716,
+      "id": 75
     }
   ]
 }

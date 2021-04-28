@@ -58,7 +58,7 @@ class API {
             return response;
         }, (error) => {
             state.setPreloader(false);
-            state.setErrorAuthorization(true);
+            state.setErrorAuth(true);
             return Promise.reject(error);
         })
     }
