@@ -6,13 +6,13 @@ import state from '../../../../../State';
 import './messageBox.scss';
 
 const MessagesBox = observer(() => {
-    const { users, tasks, comments, messages, currentUserInfo } = state;
+    const { users, tasks, comments, messages, authUserId } = state;
 
     return (
-        <List elements={messages} className="message-box" clnItem="message-box__item">
+        <List elements={messages} className="message-box" clnItem="message-box__item" label="Нет сообщений">
             {(message) => <Message users={users}
                 tasks={tasks} comments={comments}
-                message={message} currentUser={currentUserInfo} />}
+                message={message} currentUserId={authUserId} />}
         </List>
     )
 });

@@ -15,6 +15,7 @@ class State {
     isAuth = false;
     userAuthData = null;
     isErrorAuth = false;
+    isErrorRegistration = false;
     isFetching = false;
     isError = false;
     filter = '';
@@ -22,7 +23,6 @@ class State {
     users = [];
     comments = [];
     messages = [];
-
 
     getSavedUserData = () => {
         const user = getAuthUserFromLocaleStorage();
@@ -39,12 +39,16 @@ class State {
         this.userAuthData = response;
     }
 
+    setPreloader = (isFetching) => {
+        this.isFetching = isFetching;
+    }
+
     setErrorAuth = (isError) => {
         this.isErrorAuth = isError;
     }
 
-    setPreloader = (isFetching) => {
-        this.isFetching = isFetching;
+    setErrorRegistration = (isError) => {
+        this.isErrorRegistration = isError;
     }
 
     setErrorIndicator = (isError) => {
@@ -76,7 +80,7 @@ class State {
     logOutUser = () => {
         this.isAuth = false;
         this.userAuthData = null;
-        clearAuthUserFromLocaleStorage();
+        this.clearAuthUserData();
     }
 
     setAllData = () => {
@@ -93,6 +97,10 @@ class State {
         this.users = users;
         this.comments = comments;
         this.messages = messages;
+    }
+
+    addUser = (user) => {
+        return api.user.addUser(user)
     }
 
     addNewTask = (task) => {
@@ -123,17 +131,13 @@ class State {
     }
 
     addNewComment = (comment) => {
-
         api.comment.addComment(comment)
             .then(
                 action('succes', (response) => {
-                    console.log('444444444444444: ', response);
                     this.updateAllData(response);
                 })
             )
     }
-
-
 
     get authUserId() {
         return this.userAuthData.id;

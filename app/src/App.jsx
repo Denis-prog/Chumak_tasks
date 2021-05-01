@@ -9,6 +9,7 @@ import ErrorIndicator from './Component/Common/ErrorIndicator';
 import Preloader from './Component/Common/Preloader';
 import HomePage from './Component/Page/HomePage';
 import AuthPage from './Component/Page/AuthPage';
+import RegistrationPage from './Component/Page/RegistrationPage';
 import state from './State';
 import './app.scss';
 
@@ -18,7 +19,7 @@ const App = observer(function App() {
 
   useEffect(() => {
     getSavedUserData();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   if (isError) {
@@ -28,8 +29,9 @@ const App = observer(function App() {
   return (
     <Router>
       <div className="app">
-        <div className="app__pages">
+        <div className="app__container">
           <Switch>
+            <Route exact path="/registration" render={() => <RegistrationPage />} />
             <Route exact path="/auth" render={() => <AuthPage />} />
             <Route exact path="/" render={() => <HomePage />} />
           </Switch>

@@ -3,7 +3,7 @@ export const minLengthValue = (min) => (value) => {
     let isErrorValidate = false;
     let message = '';
 
-    if (value.trim().length < min) {
+    if (value && value.trim().length < min) {
         isErrorValidate = true;
         const wordFloor = (min % 10 === 1 && min % 100 !== 11) ? ''
             : ((min % 10 > 1 && min % 10 < 5) && min % 100 < 10) ? 'а' : 'ов';
@@ -16,6 +16,15 @@ export const minLengthValue = (min) => (value) => {
         message,
     }
 };
+
+export const matchRegExp = (regExp, message) => (value) => {
+    let isErrorValidate = !regExp.test(value);
+
+    return {
+        isErrorValidate,
+        message,
+    }
+}
 
 export const requiredField = (value) => {
     let isErrorValidate = false;
@@ -45,8 +54,9 @@ export function useValidation(data, rules) {
 
         Object.keys(rules).forEach((key) => {
             const error = results[key].find((result) => result.isErrorValidate);
+
             if (error) {
-                if(!firstErrors) {firstErrors={}}
+                if (!firstErrors) { firstErrors = {} }
                 firstErrors[key] = error;
             }
         });

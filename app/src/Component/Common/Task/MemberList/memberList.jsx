@@ -1,7 +1,7 @@
 import React from 'react';
 import List from '../../List';
 import Member from './Member';
-import IconCircle from '../../RoundIcon';
+import RoundIcon from '../../RoundIcon';
 import cn from 'classnames';
 import { getUniqCounts } from '../../../../Helper';
 import './membersList.scss';
@@ -23,9 +23,9 @@ const MemberList = (props) => {
 
   const classes = cn(className, 'members');
 
-  const count = countParticipantsHidden && (<IconCircle className="members__indicator">
+  const count = countParticipantsHidden && (<RoundIcon className="members__indicator">
     <p  className="members__indicator-text">{`+${countParticipantsHidden}`}</p>
-  </IconCircle>)
+  </RoundIcon>)
 
   return (
     <div className={classes}>

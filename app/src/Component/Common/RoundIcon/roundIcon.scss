@@ -2,8 +2,8 @@
 
 .round-icon {
   @include flexContainerProperties(
-    $crossAxisAligment: center,
-    $mainAxisAlignmen: center
+    $mainAxisAlignment: center,
+    $crossAxisAligment: center
   );
   width: 23px;
   height: 23px;

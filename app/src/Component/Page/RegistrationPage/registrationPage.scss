@@ -1,10 +1,9 @@
 @import "../../../styles/mixins";
 
-.auth-page {
+.registration-page {
   @include flexContainerProperties(
     $mainAxisAlignment: center,
     $crossAxisAligment: center,
-    $direction: column
   );
   height: 100%;
 }

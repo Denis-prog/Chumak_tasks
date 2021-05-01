@@ -6,7 +6,7 @@ import './message.scss';
 
 const Message = (props) => {
 
-    const { currentUser: { id: currentUserId },
+    const { currentUserId,
         message: { source, action, author, text, subject, sourceAuthor, timestamp },
         users
     } = props;

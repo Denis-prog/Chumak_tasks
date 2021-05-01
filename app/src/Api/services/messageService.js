@@ -1,7 +1,6 @@
 class MessageService {
 
-    constructor(instance, commonRequest) {
-        this.instance = instance;
+    constructor(commonRequest) {
         this.commonRequest = commonRequest;
     }
 

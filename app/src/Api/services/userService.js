@@ -1,11 +1,13 @@
 class UserService {
 
-    constructor(instance, commonRequest) {
-        this.instance = instance;
+    constructor(commonRequest, commonRegisterRequest) {
+        this.commonRegisterRequest = commonRegisterRequest;
         this.commonRequest = commonRequest;
     }
 
-    getUsers = () => this.commonRequest.getResource('users')
+    getUsers = () => this.commonRequest.getResource('users');
+
+    addUser = (body) => this.commonRegisterRequest.addResource('register', body);
 
 };
 

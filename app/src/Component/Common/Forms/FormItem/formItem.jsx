@@ -6,9 +6,9 @@ const FormItem = (props) => {
     const classes = cn(className, 'form__item')
 
     return (
-        <p className={classes}>
+        <div className={classes}>
             {children}
-        </p>
+        </div>
     );
 };
 

@@ -7,7 +7,7 @@ var middlewares = jsonServer.defaults();
 server.db = router.db;
 
 server.use(function (req, res, next) {
-    setTimeout(next, 500);
+    setTimeout(next, 1000);
 });
 
 server.use(cors());

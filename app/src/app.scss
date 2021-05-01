@@ -1,17 +1,20 @@
-.app {
-    height         : 100vh;
-    background     : linear-gradient(115.67deg, #EDC1D3 7.14%, #91BDEC 99.42%);
-    display        : flex;
-    align-items    : center;
-    justify-content: center;
+@import "./styles/mixins";
 
-    &__pages {
-        width           : 1374px;
-        height          : 825px;
-        margin          : auto;
-        background-color: #fff;
-        padding         : 20px;
-        box-shadow      : 0px 4px 40px #8CA4D8;
-        border-radius   : 30px;
-    }
+.app {
+  @include flexContainerProperties(
+    $mainAxisAlignment: center,
+    $crossAxisAligment: center
+  );
+  height: 100vh;
+  background: linear-gradient(115.67deg, #edc1d3 7.14%, #91bdec 99.42%);
+
+  &__container {
+    width: 1374px;
+    height: 825px;
+    margin: auto;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0px 4px 40px #8ca4d8;
+    border-radius: 30px;
+  }
 }

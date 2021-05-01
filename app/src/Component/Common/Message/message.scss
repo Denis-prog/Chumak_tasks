@@ -11,7 +11,7 @@
   &__header {
     @include flexContainerProperties(
       $mainAxisAlignment: space-between,
-      $crossAxisAligment: center
+      $crossAxisAligment: flex-start
     );
     margin-bottom: 10px;
   }
@@ -82,6 +82,8 @@
       $size: 0.72rem,
       $color: #7d859a
     );
+    width: 30%;
+    text-align: right;
   }
 
   &__content {

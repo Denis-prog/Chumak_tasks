@@ -1,4 +1,4 @@
-import axios from 'axios';
+import * as axios from 'axios';
 import state from '../State';
 import Message from '../Entity/Message';
 
@@ -12,7 +12,8 @@ import {
 } from './services';
 
 class API {
-    constructor(baseURL, authURL) {
+    
+    constructor(baseURL, authURL, registerUrl) {
         this.requestList = [];
         this.request = axios.create({
             baseURL,
@@ -20,20 +21,26 @@ class API {
         this.authRequest = axios.create({
             baseURL: authURL,
         });
+        this.registerRequest = axios.create({
+            baseURL: registerUrl
+        });
 
-        this.setTokenInterceptors();
+        this.setRegistrationInterceptors();
         this.setPreloadInterceptors();
+        this.setTokenInterceptors();
         this.authHandlerIntercertors();
         this.setErrorInterceptors();
-        this.setMessage();
+        this.setAddMessageInterceptors();
         this.setAllDataInterceptors();
 
-
         this.commonRequest = new CommonRequest(this.request);
-        this.todo = new TodoService(this.request, this.commonRequest);
-        this.user = new UserService(this.request, this.commonRequest);
-        this.comment = new CommentService(this.request, this.commonRequest);
-        this.message = new MessageService(this.request, this.commonRequest);
+        this.commonAuthRequest = new CommonRequest(this.authRequest);
+        this.commonRegisterRequest = new CommonRequest(this.registerRequest);
+
+        this.todo = new TodoService(this.commonRequest);
+        this.user = new UserService(this.commonRequest, this.commonRegisterRequest);
+        this.comment = new CommentService(this.commonRequest);
+        this.message = new MessageService(this.commonRequest);
         this.auth = new AuthService(this.authRequest);
     }
 
@@ -60,7 +67,20 @@ class API {
             state.setPreloader(false);
             state.setErrorAuth(true);
             return Promise.reject(error);
-        })
+        });
+    }
+
+    setRegistrationInterceptors() {
+        this.registerRequest.interceptors.request.use((config) => {
+            state.setPreloader(true);
+            return config;
+        });
+        this.registerRequest.interceptors.response.use(() => {
+            state.setPreloader(false);
+        }, (error) => {
+            state.setPreloader(false);
+            throw error;
+        });
     }
 
     setTokenInterceptors() {
@@ -113,10 +133,8 @@ class API {
     }
 
     historyHandler = (response) => {
-
         const [source] = response.config.url.split('/');
         const action = response.config.method;
-        console.log('action: ', action);
         const entity = response.data;
 
         switch (source) {
@@ -130,7 +148,7 @@ class API {
                 return new Message(source, action, state.authUserId, entity.text,
                     entity.subject, entity.author);
             }
-            
+
             default: throw new Error('нет совпадений');
         }
     }
@@ -150,7 +168,7 @@ class API {
         });
     }
 
-    setMessage() {
+    setAddMessageInterceptors() {
         this.request.interceptors.response.use(async (response) => {
 
             const method = response.config.method;
@@ -170,5 +188,8 @@ class API {
     }
 }
 
-const api = new API('http://localhost:3000/660/', 'http://localhost:3000/');
+const api = new API(
+    'http://localhost:3000/660/',
+    'http://localhost:3000/',
+    'http://localhost:3000/');
 export default api;

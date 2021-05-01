@@ -1,0 +1,86 @@
+@import "../../../../styles/mixins";
+@import "../../../../styles//templates";
+
+.reg-form {
+  width: 350px;
+  min-height: 200px;
+  box-shadow: 0px 4px 40px #8ca4d8;
+  padding: 20px;
+
+  &__item {
+    @include flexContainerProperties(
+      $mainAxisAlignment: space-between,
+      $crossAxisAligment: center,
+      $wrap: wrap
+    );
+
+    margin-bottom: 15px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__item-radio-box {
+    display: block;
+  }
+
+  &__item-radio-box-title {
+    margin-bottom: 15px;
+  }
+
+  &__item-radio-box-content {
+    @include flexContainerProperties($mainAxisAlignment: flex-end);
+  }
+
+  &__item-radio {
+    appearance: none;
+    position: absolute;
+
+    &:checked + label {
+      box-shadow: 0px 0px 0px 5px rgba(95, 245, 9, 0.5);
+    }
+  }
+
+  &__item-radio-label {
+    display: block;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 15px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    &_first {
+      background-image: url("./assets/icon_user_1.svg");
+    }
+
+    &_second {
+      background-image: url("./assets/icon_user_2.svg");
+    }
+
+    &_third {
+      background-image: url("./assets/icon_user_3.svg");
+    }
+
+    &_fourth {
+      background-image: url("./assets/icon_user_4.svg");
+    }
+  }
+
+  &__btn-submit {
+    @extend %addButton;
+    margin: 30px auto 0;
+    padding: 15px 10px;
+  }
+
+  &__error-submit {
+    color: #ff0000;
+    margin-top: 15px;
+  }
+}
