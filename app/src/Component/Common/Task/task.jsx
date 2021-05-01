@@ -23,9 +23,9 @@ const Task = observer((props) => {
     return (
         <div className="wrapper-task">
             <div className={taskClasses}>
-                <span className="'task__element task__text">{text}</span>
+                <span className="task__element task__text">{text}</span>
                 <ExecutionStatus status={status} className="task__element" />
-                <PriorityStatus priority={priority} className="task__lement" />
+                <PriorityStatus priority={priority} className="task__element" />
                 <MemberList taskId={taskId} taskAuthor={author}
                     taskExecutor={executor} comments={comments} users={users} className="task__element" />
                 <Button className="task__update-btn task__element" onClick={onToggleActionWindow}>
