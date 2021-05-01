@@ -1,0 +1,14 @@
+@import "../../../../styles/mixins";
+
+.message-time {
+  @include fontProperties(
+    $family: (
+      Poppins,
+      sans-serif,
+    ),
+    $size: 0.72rem,
+    $color: #7d859a
+  );
+  text-align: right;
+  width: 30%;
+}

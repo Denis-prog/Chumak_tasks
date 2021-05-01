@@ -32,8 +32,6 @@ server.use(function (req, res, next) {  //настройка запроса Dele
 });
 server.use(router);
 
-
-
-server.listen(3000, function () {
+server.listen(3001, function () {
     console.log('JSON Server is running')
 })

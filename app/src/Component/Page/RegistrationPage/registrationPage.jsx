@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, {useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import RegistrationFrom from '../../Common/Forms/RegistrationForm';
 import state from '../../../State';
@@ -35,13 +35,6 @@ const RegistrationPage = observer(() => {
             })
         })
     };
-/* 
-    useEffect(() => {
-        if (errorSubmitForm.error) {
-            setErrorSubmitForm({});
-        }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [formData]); */
 
     return (
         <main className="registration-page">

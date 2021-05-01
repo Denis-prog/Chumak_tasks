@@ -36,6 +36,7 @@ const ActionOnTask = observer((props) => {
 
         changeStatusTask(status);
 
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [status])
 
     useEffect(() => {
@@ -53,6 +54,7 @@ const ActionOnTask = observer((props) => {
 
         scrollToActionWindow();
 
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [isOpen])
 
 

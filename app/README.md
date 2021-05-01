@@ -1,3 +1,24 @@
+# Getting Started with JsonServer
+
+node server.js
+
+users:
+
+email: 'igorek@mail.ru'
+password: 'best'
+
+email: 'vasy@mail.ru'
+password: 'best'
+
+email: 'semen@mail.ru'
+password: 'best'
+
+email: 'kirill@bk.ru'
+password: 'qwQW12'
+
+email: 'artem@bk.ru'
+password: 'qwQW12'
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

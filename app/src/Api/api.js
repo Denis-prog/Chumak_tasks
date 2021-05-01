@@ -30,7 +30,7 @@ class API {
         this.setTokenInterceptors();
         this.authHandlerIntercertors();
         this.setErrorInterceptors();
-        this.setAddMessageInterceptors();
+        this.setHistoryInterceptors();
         this.setAllDataInterceptors();
 
         this.commonRequest = new CommonRequest(this.request);
@@ -168,7 +168,7 @@ class API {
         });
     }
 
-    setAddMessageInterceptors() {
+    setHistoryInterceptors() {
         this.request.interceptors.response.use(async (response) => {
 
             const method = response.config.method;
@@ -189,7 +189,7 @@ class API {
 }
 
 const api = new API(
-    'http://localhost:3000/660/',
-    'http://localhost:3000/',
-    'http://localhost:3000/');
+    'http://localhost:3001/660/',
+    'http://localhost:3001/',
+    'http://localhost:3001/');
 export default api;

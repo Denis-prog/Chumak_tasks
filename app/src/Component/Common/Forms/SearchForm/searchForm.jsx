@@ -12,6 +12,7 @@ const SearchForm = observer(() => {
     useEffect(() => {
         setFilter(text);
 
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [text])
 
     return (

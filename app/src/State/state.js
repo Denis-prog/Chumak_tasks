@@ -149,7 +149,8 @@ class State {
 
     get currentTasks() {
         if (!!this.filter) {
-            return this.tasks.filter((task) => task.text.indexOf(this.filter) !== -1);
+            const filter = this.filter.toLowerCase();
+            return this.tasks.filter((task) => task.text.toLowerCase().indexOf(filter) !== -1);
         }
 
         return this.tasks;

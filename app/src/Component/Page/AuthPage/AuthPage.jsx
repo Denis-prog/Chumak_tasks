@@ -39,7 +39,7 @@ const AuthPage = observer(() => {
         <main className="auth-page">
             <AuthForm className="auth-page__form" formData={formData} onUpdateFormData={onUpdateFormData}
                 onSubmit={onSubmit} isErrorAuth={isErrorAuth} />
-            <Link path='/registration'>Регистрация</Link>
+            <Link className="auth-page__link-to-registration" path='/registration'>Регистрация</Link>
         </main>
     );
 });
