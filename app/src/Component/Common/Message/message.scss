@@ -76,7 +76,8 @@
         sans-serif,
       ),
       $size: 0.85rem,
-      $lHeight: 1.5
+      $lHeight: 1.5,
+      $color: #555555
     );
     width: 80%;
     margin-left: auto;
@@ -86,14 +87,7 @@
     background-color: #f3f3f3;
 
     &_own {
-      @include fontProperties(
-        $family: (
-          Poppins,
-          sans-serif,
-        ),
-        $size: 0.72rem,
-        $lHeight: 1.5
-      );
+      font-size: 0.72rem;
       background: none;
       width: 100%;
       padding: 0;
