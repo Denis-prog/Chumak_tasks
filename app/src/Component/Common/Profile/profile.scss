@@ -5,7 +5,6 @@
 
   &__info {
     @include flexContainerProperties($crossAxisAligment: center);
-    margin-bottom: 10px;
 
     *:not(:last-child) {
       margin-right: 15px;

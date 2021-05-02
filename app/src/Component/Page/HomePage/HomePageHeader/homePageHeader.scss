@@ -1,3 +1,20 @@
-.home-page__header {
-  margin-bottom: 40px;
+@import "../../../../styles/mixins";
+
+.home-page {
+  &__header {
+    margin-bottom: 40px;
+  }
+
+  &__header-nav {
+    @include flexContainerProperties($mainAxisAlignment: space-between);
+    width: 100%;
+  }
+
+  &__header-nav-user-info {
+    @include flexContainerProperties($crossAxisAligment: center);
+  }
+
+  &__header-nav-user-info-notificatation-indicator {
+    margin-right: 20px;
+  }
 }
