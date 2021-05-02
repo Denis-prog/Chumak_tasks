@@ -15,7 +15,6 @@ class State {
     isAuth = false;
     userAuthData = null;
     isErrorAuth = false;
-    isErrorRegistration = false;
     isFetching = false;
     isError = false;
     filter = '';
