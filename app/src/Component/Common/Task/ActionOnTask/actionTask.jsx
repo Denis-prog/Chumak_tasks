@@ -5,7 +5,7 @@ import Select from '../../Select';
 import state from '../../../../State';
 import {
     Comment
-} from '../../../../Entity';
+} from '../../../../entity';
 import {
     requiredField,
     useValidation,

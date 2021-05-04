@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Button from '../../../../../../Common/Button';
 import Modal from '../../../../../../Common/Modal';
 import TaskAddForm from '../../../../../../Common/Forms/TaskAddForm';
-import { Task } from '../../../../../../../Entity'
+import { Task } from '../../../../../../../entity'
 import state from '../../../../../../../State';
 
 import './addNewTask.scss';
