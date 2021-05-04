@@ -8,8 +8,7 @@ class Message {
         this.subject = subject;
         this.sourceAuthor = sourceAuthor;
         this.timestamp = Date.now();
-
     }
-};
+}
 
 export default Message;

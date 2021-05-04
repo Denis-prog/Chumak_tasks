@@ -1,6 +1,6 @@
 import * as axios from 'axios';
 import state from '../State';
-import Message from '../Entity/Message';
+import { Message } from '../Entity';
 
 import {
     CommonRequest,
@@ -12,7 +12,7 @@ import {
 } from './services';
 
 class API {
-    
+
     constructor(baseURL, authURL, registerUrl) {
         this.requestList = [];
         this.request = axios.create({

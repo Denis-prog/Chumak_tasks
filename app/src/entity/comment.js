@@ -5,6 +5,6 @@ class Comment {
         this.text = text;
         this.timestamp = Date.now();
     }
-};
+}
 
 export default Comment;
