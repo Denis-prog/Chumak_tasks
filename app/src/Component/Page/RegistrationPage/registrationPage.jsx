@@ -2,7 +2,7 @@ import React, {useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import RegistrationFrom from '../../Common/Forms/RegistrationForm';
 import state from '../../../State';
-import { User } from '../../../Entity';
+import { User } from '../../../entity';
 import { observer } from 'mobx-react';
 import './registrationPage.scss';
 

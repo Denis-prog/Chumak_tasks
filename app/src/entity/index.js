@@ -1,7 +1,7 @@
-import User from './User';
-import Task from './Task';
-import Comment from './Comment';
-import Message from './Message';
+import User from './user';
+import Task from './task';
+import Comment from './comment';
+import Message from './message';
 
 export {
     User,

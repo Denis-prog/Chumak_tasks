@@ -1,6 +1,6 @@
 import * as axios from 'axios';
 import state from '../State';
-import { Message } from '../Entity';
+import { Message } from '../entity';
 
 import {
     CommonRequest,

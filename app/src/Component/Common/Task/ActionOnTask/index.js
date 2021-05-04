@@ -1,1 +1,1 @@
-export {default} from './ActionOnTask';
+export {default} from './actionOnTask';
