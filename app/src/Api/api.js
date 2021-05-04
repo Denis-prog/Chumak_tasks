@@ -102,7 +102,7 @@ class API {
             return response;
         }, (error) => {
 
-            if (401 === error.response.status) {
+            if (401 === error?.response?.status) {
                 state.clearAuthUserData();
                 throw error;
             }
